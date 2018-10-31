@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -46,32 +45,21 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'user_fullName' => 'required|string|max:255',
-            'user_email' => 'required|string|email|max:255|unique:users',
-            'user_password' => 'required|string|min:6|confirmed',
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
      * @return \App\User
      */
-    protected function create(array $data)
+
+    protected function create(Request $request)
     {
-        return User::create([
-            'user_fullName' => $data['name'],
-            'user_email' => $data['email'],
-            'user_password' => Hash::make($data['password']),
-        ]);
+        if ($request->input('regPassword') == $request->input('regPasswordConfirm')) {
+            return User::create([
+                'user_fullName' => $request->input('regName') . ' ' . $request->input('regFamily'),
+                'user_email' => $request->input('regEmail'),
+                'user_phoneNumber' => $request->input('regCaller'),
+                'user_password' => $request->input('regPassword'),
+            ]);
+        }
     }
 }

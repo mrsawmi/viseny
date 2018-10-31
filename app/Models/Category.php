@@ -11,6 +11,22 @@ class Category extends Model
         'category_id'
     ];
 
+    public function products()
+    {
+        return $this->
+        belongsToMany(tablo::class, 'category_product', 'category_id', 'product_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
     public function tablos()
     {
         return $this->belongsTo(Role::class, 'user_group');

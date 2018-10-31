@@ -23,7 +23,6 @@ class UsersController extends Controller
         $userGender = User::getUserGender();
         $userPlan = User::getUserPlans();
         $userGroups = Role::get();
-
         return view('admin.create', compact('userRoles', 'userGender', 'userPlan', 'userGroups'));
     }
 
@@ -80,5 +79,16 @@ class UsersController extends Controller
                 return redirect()->route('admin.users')->with('status', 'کاربر با موفقیت به روز رسانی گردید!');
             }
         }
+    }
+
+    public function profile(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
+        return view('viseny.profile.profile', compact('user'));
+    }
+
+    public function log()
+    {
+        return view('auth.log');
     }
 }

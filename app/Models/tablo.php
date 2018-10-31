@@ -14,6 +14,7 @@ class tablo extends Model
         'tablo_id'
     ];
 
+
     public function order()
     {
         return $this->hasMany(order::class, 'order_id');
@@ -26,8 +27,9 @@ class tablo extends Model
 
     public function ticket()
     {
-        return $this->hasMany(ticket::class,'tablo_id');
+        return $this->hasMany(ticket::class, 'tablo_id');
     }
+
     public static function getTabloStatus()
     {
         return [

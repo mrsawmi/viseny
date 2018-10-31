@@ -325,6 +325,13 @@
                             <li><a href="{{ route('admin.ticket.create') }}">ارسال تیکت (دمو)</a></li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-book"></i><span
+                                    class="hide-menu">دیدگاه ها
+                        </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('admin.comment') }}">لیست دیدگاه ها</a></li>
+                        </ul>
+                    </li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tags"></i><span
                                     class="hide-menu">دسته بندی ها
                         </span></a>

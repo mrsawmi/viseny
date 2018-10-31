@@ -40,6 +40,11 @@ class User extends Model
         return $this->hasMany(order::class, 'user_id');
     }
 
+    public function comment()
+    {
+        return $this->hasMany(comment::class,'user_id');
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'user_group');

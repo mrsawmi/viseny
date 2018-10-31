@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\comment;
+use App\Models\comment;
 use App\Models\tablo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class tabloController extends Controller
 {
+//
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
+
     public function index()
     {
         $tablos = tablo::get();
@@ -30,6 +36,9 @@ class tabloController extends Controller
             'tablo_caption' => $request->input('tabloDescription'),
             'tablo_painter' => $request->input('tabloPainter'),
             'tablo_price' => $request->input('tabloPrice'),
+            'tablo_category' => $request->input('tabloCategoryType'),
+            'tablo_color_tag' => $request->input('tabloCategoryColor'),
+            'tablo_size' => $request->input('tabloSize'),
             'tablo_img' => $request->input('tabloPainter') . '.' . $request->file('tabloImage')->getClientOriginalName(),
         ]);
         if ($request->hasFile('tabloImage')) {
@@ -60,6 +69,7 @@ class tabloController extends Controller
                 'tablo_title' => $request->input('tabloTitle'),
                 'tablo_caption' => $request->input('tabloDiscription'),
                 'tablo_status' => $request->input('tabloStatus'),
+                'tablo_size' => $request->input('tabloSize')
             ];
             if ($request->hasFile('tabloImage')) {
                 array_push($tabloData, ['tablo_img' => $request->input('tabloPainter') . '.' . $request->file('tabloImage')->getClientOriginalName()]);
@@ -83,9 +93,26 @@ class tabloController extends Controller
         }
     }
 
-    public function customer(Request $request, $tablo_id)
+    public function customer()
     {
-        $tablo = tablo::find($tablo_id);
-        return view('viseny.singleProduct', compact('tablo'));
+        $products = tablo::get();
+        $user = User::get();
+        return view('viseny.index', compact('products', 'user'));
+    }
+
+    public function singleProduct(Request $request, $tablo_id)
+    {
+        $product = tablo::find($tablo_id);
+        if ($product && $product instanceof tablo) {
+            $tabloData = [
+                'tablo_view_count' => ($product->tablo_view_count + 1)
+            ];
+            $product->update($tabloData);
+        }
+        $comments = comment::with('users')->get();
+        return view('viseny.singleproduct', compact('product', 'comments'));
     }
 }
+
+
+

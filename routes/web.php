@@ -56,14 +56,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'categoriesController@index')->name('admin.category');
         Route::post('store', 'categoryController@store')->name('admin.category.store');
     });
+    Route::group(['prefix' => 'comment'], function () {
+        Route::get('/', 'commentsController@index')->name('admin.comment');
+        Route::post('/product/store', 'commentsController@store')->name('admin.comment.store');
+        Route::get('/product/delete/{comment_id}', 'commentsController@delete')->name('admin.comment.delete');
+        Route::post('/product/confirm/{comment_id}','commentsController@confirm')->name('admin.comment.confirm');
+    });
 });
 
 Route::group(['prefix' => 'users'], function () {
 
 });
 
-Route::get('/', 'HomeController@index')->name('users.home');
-
-
-Auth::routes();
-
+Route::get('/', 'admin\tabloController@customer')->name('users.home');
+Route::get('/product/{tablo_id}', 'admin\tabloController@singleProduct')->name('products.single');
+Route::get('/profile/{user_id}','admin\UsersController@profile')->name('users.profile');
+Route::get('/register','admin\UsersController@log')->name('user.log');
+Route::post('/register/store','Auth\RegisterController@create')->name('user.register.store');
+Route::post('/login/check','Auth\LoginController@login')->name('user.login.store');

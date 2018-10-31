@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tablo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,10 +11,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -24,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tablos = tablo::get();
-        return view('viseny.index',compact('tablos'));
+        return view('home');
     }
 }

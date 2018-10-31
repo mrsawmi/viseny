@@ -57,6 +57,12 @@
 
                         </div>
                         <div class="form-group">
+                            <label for="tabloSize">سایز : (از علامت / برای جدا سازی استفاده کنید)</label>
+                            <input id="tabloSize" name="tabloSize" type="text"
+                                   class="form-control input-default hasPersianPlaceHolder"
+                                   value="{{ old('tabloSize') }}">
+                        </div>
+                        <div class="form-group">
                             <label for="tabloImage">تصویر محصول :</label>
                             <input type="file" name="tabloImage">
                         </div>
