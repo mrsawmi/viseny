@@ -17,14 +17,14 @@ class ordersController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-//        if (Auth::check) {
+        if (Auth::check) {
         order::create([
             'order_tablo_id' => $request->input('orderID'),
             'order_user_id' => $request->id(),
             'order_amount' => $request->input('tabloPrice'),
 
         ]);
-//        }
+        }
+        return redirect()->route('login');
     }
 }

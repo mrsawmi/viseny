@@ -11,10 +11,10 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="size">سایز :</label>
-                <select class="form-control" id="size">
+                <select class="form-control" id="size" onchange="calculate(this.value);">
                     <option>انتخاب سایز</option>
                     @foreach(explode(" / ",$product->tablo_size) as $size)
-                        <option>{{ $size }}</option>
+                        <option value="0">{{ $size }}</option>
                     @endforeach
                 </select>
             </div>

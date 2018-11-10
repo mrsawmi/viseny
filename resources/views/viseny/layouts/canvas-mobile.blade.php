@@ -109,7 +109,7 @@
             <li class="has-children"><span><a href="account-orders.html"><span>دسترسی ها</span></a><span
                             class="sub-menu-toggle"></span></span>
                 <ul class="offcanvas-submenu">
-                    <li><a href="{{ route('user.log') }}">ورود / ثبت نام</a></li>
+                    <li><a href="#">ورود / ثبت نام</a></li>
                     <li><a href="account-password-recovery.html">فراموشی رمز</a></li>
                     <li><a href="account-orders.html">لیست سفارشات</a></li>
                     <li><a href="account-wishlist.html">علاقه مندی های من</a></li>

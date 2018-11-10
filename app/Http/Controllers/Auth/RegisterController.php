@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\DemoMail;
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\UserCreateRequest;
 
 class RegisterController extends Controller
 {
@@ -29,11 +32,6 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
-    public function redirectTo()
-    {
-        return '/login';
-    }
-
     /**
      * Create a new controller instance.
      *
@@ -44,22 +42,40 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function redirectTo()
+    {
+        return redirect()->route('login');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'userFullName' => 'required|string|max:255',
+            'userEmail' => 'required|string|email|max:255|unique:users',
+            'userPhone' => 'requied|stirng|email|min:11|max:11',
+            'userPassword' => 'required|string|min:8|confirmed',
+        ]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return \App\Models\User
      */
-
-    protected function create(Request $request)
+    protected function create(UserCreateRequest $request)
     {
-        if ($request->input('regPassword') == $request->input('regPasswordConfirm')) {
-            return User::create([
-                'user_fullName' => $request->input('regName') . ' ' . $request->input('regFamily'),
-                'user_email' => $request->input('regEmail'),
-                'user_phoneNumber' => $request->input('regCaller'),
-                'user_password' => $request->input('regPassword'),
+        if ($request->input('userPassword') == $request->input('userPasswordConfirm')) {
+            $user = User::create([
+                'user_fullName' => $request->input('userFullName'),
+                'email' => $request->input('userEmail'),
+                'password' => bcrypt($request->input('userPassword')),
+                'user_phoneNumber' => $request->input('userPhone')
             ]);
+//            $email = $request->input('userEmail');
+//            Mail::to($email)->send(new DemoMail());
+            return $this->redirectTo();
         }
+
     }
 }

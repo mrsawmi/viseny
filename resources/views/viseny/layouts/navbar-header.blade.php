@@ -4,7 +4,7 @@
 <header class="navbar navbar-sticky">
     <!-- Search-->
     <form class="site-search" method="get">
-        <input type="text" name="site_search" placeholder="عبارت مورد جستجو را تایپ کنید . . .">
+        <input type="text" name="site_search" placeholder="بنویس تا واست پیداش کنم...">
         <div class="search-tools"><span class="clear-search hidden-xs-down">پاک کردن</span><span class="close-search"><i
                         class="icon-cross"></i></span></div>
     </form>
@@ -14,13 +14,14 @@
                                                            data-toggle="offcanvas"></a>
             <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle " href="#mobile-menu"
                                                        data-toggle="offcanvas"></a>
-            <!-- Site Logo--><a class="site-logo" href="index-2.html"><img src="/viseny/img/logo/logo.png" alt="Unishop"></a>
+            <!-- Site Logo--><a class="site-logo" href="index-2.html"><img src="/viseny/img/logo/logo.png"
+                                                                           alt="Unishop"></a>
         </div>
     </div>
     <!-- Main Navigation-->
     <nav class="site-menu">
         <ul>
-            <li class="has-megamenu active"><a href="index-2.html"><span>خانه</span></a>
+            <li class="has-megamenu active"><a href="{{ route('users.home') }}"><span>خانه</span></a>
                 <ul class="mega-menu">
                     <li><a class="d-block img-thumbnail text-center navi-link" href="index-2.html"><img
                                     alt="Featured Products Slider" src="/viseny/img/mega-menu-home/01.jpg">
@@ -113,16 +114,22 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="account-orders.html"><span>دسترسی اعضا</span></a>
+            <li><a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user() ]) }}"><span>دسترسی اعضا</span></a>
                 <ul class="sub-menu">
-                    <li><a href="{{ route('user.log') }}">ورود / ثبت نام</a></li>
+                    <li><a href="{{ route('register') }}">ثبت نام</a></li>
+                    <li><a href="{{ route('login') }}">ورود</a></li>
+                    <li><a href="{{ route('logout') }}">خروج از حساب کاربری</a></li>
                     <li><a href="account-password-recovery.html">فراموشی رمز عبور</a></li>
-                    <li><a href="account-orders.html">لیست سفارشات</a></li>
-                    <li><a href="account-wishlist.html">لیست علاقه مندی</a></li>
-                    <li><a href="account-profile.html">صفحه پروفایل</a></li>
-                    <li><a href="account-address.html">تلفن ها / آدرس خریداران</a></li>
-                    <li><a href="account-tickets.html">تیکت های من</a></li>
-                    <li><a href="account-single-ticket.html">صفحه تیکت</a></li>
+                    <li><a href="{{ route('users.profile.orders',[\Illuminate\Support\Facades\Auth::user()]) }}">لیست
+                            سفارشات</a></li>
+                    <li><a href="{{ route('users.profile.favorites',[\Illuminate\Support\Facades\Auth::user()]) }}">لیست
+                            علاقه مندی</a></li>
+                    <li><a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()]) }}">صفحه
+                            پروفایل</a></li>
+                    <li><a href="{{ route('users.profile.addresses',[\Illuminate\Support\Facades\Auth::user()]) }}">تلفن
+                            ها / آدرس خریداران</a></li>
+                    <li><a href="{{ route('users.profile.tickets',[\Illuminate\Support\Facades\Auth::user()]) }}">تیکت
+                            های من</a></li>
                 </ul>
             </li>
             <li><a href="blog-rs.html"><span>وبلاگ</span></a>
@@ -145,7 +152,7 @@
             </li>
             <li><a href="#"><span>صفحات</span></a>
                 <ul class="sub-menu">
-                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="{{ route('about') }}">درباره ما</a></li>
                     <li><a href="contacts.html">ارتباط با ما</a></li>
                     <li><a href="faq.html">Help / FAQ</a></li>
                     <li><a href="order-tracking.html">سفارشات ثبت شده</a></li>
@@ -232,7 +239,8 @@
                             class="subtotal">98300 تومان</span>
                     <div class="toolbar-dropdown">
                         <div class="dropdown-product-item"><span class="dropdown-product-remove"><i
-                                        class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img
+                                        class="icon-cross"></i></span><a class="dropdown-product-thumb"
+                                                                         href="shop-single.html"><img
                                         src="/viseny/img/cart-dropdown/01.jpg" alt="Product"></a>
                             <div class="dropdown-product-info"><a class="dropdown-product-title"
                                                                   href="shop-single.html">کفش ورزشی مردانه</a><span
@@ -240,7 +248,8 @@
                                         class="dropdown-product-details"> - 2</span></div>
                         </div>
                         <div class="dropdown-product-item"><span class="dropdown-product-remove"><i
-                                        class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img
+                                        class="icon-cross"></i></span><a class="dropdown-product-thumb"
+                                                                         href="shop-single.html"><img
                                         src="/viseny/img/cart-dropdown/02.jpg" alt="Product"></a>
                             <div class="dropdown-product-info"><a class="dropdown-product-title"
                                                                   href="shop-single.html">کلاه بازی تنیس</a><span
@@ -248,7 +257,8 @@
                                         class="dropdown-product-details"> - 2</span></div>
                         </div>
                         <div class="dropdown-product-item"><span class="dropdown-product-remove"><i
-                                        class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img
+                                        class="icon-cross"></i></span><a class="dropdown-product-thumb"
+                                                                         href="shop-single.html"><img
                                         src="/viseny/img/cart-dropdown/03.jpg" alt="Product"></a>
                             <div class="dropdown-product-info"><a class="dropdown-product-title"
                                                                   href="shop-single.html">کیف زنانه چرم آبی</a><span

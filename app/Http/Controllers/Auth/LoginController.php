@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
+use http\Env\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -29,11 +30,6 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-    protected function redirectTo()
-    {
-        return back()->with('status','ثبت نام با موفقیت انجام شد.');
-    }
-
     /**
      * Create a new controller instance.
      *
@@ -44,14 +40,25 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request)
+    protected function redirectTo()
     {
-        $email = $request->input('loginEmail');
-        $password = $request->input('loginPassword');
-        if (Auth::attempt(array('user_email' => $email, 'user_password' => $password))){
-            return back()->with('status','ثبت نام انجام شد.');
-        }else{
-            return back()->with('status','ثبت نام انجام نشد.');
+        $userRole = Auth::user()->user_group;
+        switch ($userRole) {
+            case 1:
+                return '/';
+                break;
+            case 2:
+                return '/admin/product';
         }
     }
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('users.home');
+        }
+    }
+
 }

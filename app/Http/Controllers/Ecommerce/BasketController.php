@@ -1,0 +1,200 @@
+<?php
+
+namespace App\Http\Controllers\Ecommerce;
+
+use Illuminate\Http\Request;
+use Lenius\Basket\Facades\Basket;
+
+class BasketController extends BaseController
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Show the basket.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('ecommerce.basket')->with(['products' => $this->products->all()]);
+    }
+
+    /**
+     * Add demo data to basket
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function demo()
+    {
+        Basket::insert(array(
+            'id'       => '1',
+            'name'     => 'Mouse',
+            'price'    => 100,
+            'quantity' => 1,
+            'tax'      => 25,
+            'weight' => 200
+        ));
+
+        Basket::insert(array(
+            'id'       => '2',
+            'name'     => 'Pc',
+            'price'    => 130,
+            'quantity' => 2,
+            'tax'      => 25,
+            'weight' => 200,
+            'options'  => [
+                [
+                    'name'  => 'size',
+                    'value' => 'L',
+                    'price' => 50,
+                ],
+            ],
+        ));
+
+        return redirect()->route('basket')->with('status', 'Card got demo data');
+    }
+
+    /**
+     * Show basket debug.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function debug()
+    {
+        dd(Basket::contents(true));
+    }
+
+    /**
+     * Update basket with quantity.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $data)
+    {
+        $items = $data->input('quantity');
+
+        if($items) {
+            foreach ($items as $itemIdentifier => $quantity) {
+                if($item = Basket::item($itemIdentifier)) {
+                    if($quantity > 0){
+                        $item->quantity = $quantity;
+                    }else{
+                        $item->remove();
+                    }
+                }
+            }
+        }
+
+        return redirect()->route('basket')->with('status', 'items updated');
+    }
+
+    /**
+     * Inc basket item.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function inc($itemIdentifier)
+    {
+        if($item = Basket::item($itemIdentifier)) {
+            if($item->quantity > 0){
+                $item->quantity++;
+            }else{
+                $item->remove();
+            }
+        }
+
+        return redirect()->route('basket');
+    }
+
+    /**
+     * Dec basket item.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dec($itemIdentifier)
+    {
+        if($item = Basket::item($itemIdentifier)) {
+            if($item->quantity > 1){
+                $item->quantity--;
+            }else{
+                $item->remove();
+            }
+        }
+
+        return redirect()->route('basket');
+    }
+
+    /**
+     * Delete basket item.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($itemIdentifier)
+    {
+        if($item = Basket::item($itemIdentifier)) {
+            $item->remove();
+        }
+
+        return redirect()->route('basket')->with('status', 'item '.$itemIdentifier.' removed!');
+    }
+
+    /**
+     * Destroy basket.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy()
+    {
+        Basket::destroy();
+        
+        return redirect()->route('basket')->with('status', 'Card destroyed!');
+    }
+
+    /**
+     * Add item to basket.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add(Request $request)
+    {
+
+        $product = (object)$this->products->firstWhere('id', $request->input('id'));
+
+        $options = json_decode(json_encode($request->input('options')));
+
+        $item = [
+            'id'         => $product->id,
+            'name'       => $product->name,
+            'tax'       => $product->tax,
+            'price'      => $product->price,
+            'weight'     => $product->weight,
+            'quantity'   => $request->input('quantity', 1),
+
+        ];
+
+        if(is_array($options))
+        {
+            foreach($options as $option)
+            {
+                $item['options'][] =  [
+                    'name' => $option->name,
+                    'label' => $option->selected->name,
+                    'value' => $option->selected->name,
+                    'price' => $option->selected->price,
+                    'weight' => $option->selected->weight,
+                ];
+            }
+        }
+
+        // Add the item to the cart
+        return Basket::insert($item);
+    }
+}

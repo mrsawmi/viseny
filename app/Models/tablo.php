@@ -20,12 +20,7 @@ class tablo extends Model
         return $this->hasMany(order::class, 'order_id');
     }
 
-    public function painter()
-    {
-        return $this->belongsTo(painter::class, 'tablo_painter_id');
-    }
-
-    public function ticket()
+    public function tickets()
     {
         return $this->hasMany(ticket::class, 'tablo_id');
     }
@@ -36,5 +31,10 @@ class tablo extends Model
             self::WAITNG => 'در انتظار تایید',
             self::PUBLISHED => 'تایید شده'
         ];
+    }
+
+    public function scopePopular($query)
+    {
+        return $query->where('price', '>', 100);
     }
 }

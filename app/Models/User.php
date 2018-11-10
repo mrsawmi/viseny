@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -31,18 +32,18 @@ class User extends Model
     ];
 
     protected $hidden = [
-        'user_password',
+        'password', 'remember_token'
     ];
 
 
-    public function order()
+    public function orders()
     {
         return $this->hasMany(order::class, 'user_id');
     }
 
     public function comment()
     {
-        return $this->hasMany(comment::class,'user_id');
+        return $this->hasMany(comment::class, 'user_id');
     }
 
     public function role()
@@ -72,6 +73,17 @@ class User extends Model
     public function hasGender($gender)
     {
         return $this->gender == $gender;
+    }
+
+    public function checkRole($role_id)
+    {
+        if ($role_id == 2) {
+            return 1;
+        } elseif ($role_id == 1) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
 
     public static function getUserGender()

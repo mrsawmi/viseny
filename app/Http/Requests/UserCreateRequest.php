@@ -27,7 +27,9 @@ class UserCreateRequest extends FormRequest
             'userFullName' => 'required',
             'userEmail' => 'required|email',
             'userPassword' => 'required',
-            'userRole' => 'default(0)'
+            'userPhone' => 'required',
+            'userPasswordConfirm' => 'required'
+
         ];
     }
 
@@ -38,6 +40,7 @@ class UserCreateRequest extends FormRequest
             'userEmail.required' => 'وارد کردن ایمیل الزامی می باشد',
             'userEmail.email' => 'ایمیل وارد شده معتبر نمی باشد.',
             'userPassword.required' => 'وارد کردن کلمه عبور الزامی می باشد.',
+            'userPasswordConfirm.required' => 'کلمه عبور را تایید کنید.'
         ];
     }
 }

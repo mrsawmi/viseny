@@ -23,7 +23,7 @@
                     <tr>
                         <th scope="row">{{ $user->user_id }}</th>
                         <td>{{ $user->user_fullName }}</td>
-                        <td>{{ $user->user_email }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>{{ $user->role->role_name  }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ number_format($user->user_wallet) }} تومان</td>

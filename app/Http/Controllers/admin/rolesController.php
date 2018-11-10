@@ -6,14 +6,29 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 
 class rolesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $userRoles = Role::get();
-        return view('roles.list', compact('userRoles'));
+        if (Auth::check()) {
+            $checker = new User();
+            $result = $checker->checkRole(Auth::user()->user_group);
+            if ($result == 1) {
+                $userRoles = Role::get();
+                return view('roles.list', compact('userRoles'));
+            }
+            return back()->with('status', 'اجازه دسترسی به این صفحه را ندارید...!');
+        }
+        return redirect()->route('login');
     }
 
     public function store(Request $request)

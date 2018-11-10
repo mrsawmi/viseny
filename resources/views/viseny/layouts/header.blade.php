@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +29,9 @@
     <link rel="stylesheet" href="/viseny/css/fancy-slider/style.css">
     <!-- Modernizr-->
     <script src="/viseny/js/modernizr.min.js"></script>
+    <script src="{{ asset('/viseny/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/viseny/js/city.js') }}"></script>
+    <script src="{{ asset('/viseny/js/change.js')}}"></script>
     @yield('head')
 </head>
 <!-- Body-->

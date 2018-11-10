@@ -156,17 +156,8 @@
                     </div>
                 </section>
                 <!--Banner Promo-->
-                <section class="alert alert-image-bg alert-dismissible fade show text-center mb-2"
-                         style="background-image: url(/viseny/img/banners/clock-benner.jpg);"><span
-                            class="alert-close text-white" data-dismiss="alert"></span>
-                    <div class="h4 text-medium text-white padding-top-1x padding-bottom-1x bg-shadow">
-                        <i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i> حراج ویژه شب عید با 50%
-                        تخفیف
-                        <div class="mt-3 hidden-xl-up"></div>
-                        <a class="btn btn-primary" href="#">نمایش حراجی</a>
-                    </div>
-                </section>
-                <!-- Promo #1-->
+            @include('viseny.banners.topbanner')
+            <!-- Promo #1-->
                 <section class="pr-2 pl-2 pt-2 pb-2 rounded-5 soft-shadow mb-2" style="background:#fff">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
@@ -206,270 +197,14 @@
                     </div>
                 </section>
                 <!--Top Category-->
-                <section class="pr-2 pl-2 pt-2 pb-2 rounded-5 soft-shadow mb-2" style="background:#fff">
-                    <h6 class="text-right border-title mb-3"> نمایش دسته های دوست داشتنی </h6>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                                    <div class="inner">
-                                        <div class="main-img"><img src="/viseny/img/shop/categories/01.jpg" alt="Category"></div>
-                                        <div class="thumblist"><img src="/viseny/img/shop/categories/02.jpg" alt="Category"><img
-                                                    src="/viseny/img/shop/categories/03.jpg" alt="Category"></div>
-                                    </div>
-                                </a>
-                                <div class="card-body text-center">
-                                    <h4 class="card-title">ژاکت و تن پوش</h4>
-                                    <p class="text-muted">قیمت از 4990 تومان</p><a
-                                            class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">نمایش
-                                        محصولات</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                                    <div class="inner">
-                                        <div class="main-img"><img src="/viseny/img/shop/categories/04.jpg" alt="Category"></div>
-                                        <div class="thumblist"><img src="/viseny/img/shop/categories/05.jpg" alt="Category"><img
-                                                    src="/viseny/img/shop/categories/06.jpg" alt="Category"></div>
-                                    </div>
-                                </a>
-                                <div class="card-body text-center">
-                                    <h4 class="card-title">کفش</h4>
-                                    <p class="text-muted">قیمت از 5600 تومان</p><a
-                                            class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">نمایش
-                                        محصولات</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="card mb-30"><a class="card-img-tiles" href="shop-grid-ls.html">
-                                    <div class="inner">
-                                        <div class="main-img"><img src="/viseny/img/shop/categories/07.jpg" alt="Category"></div>
-                                        <div class="thumblist"><img src="/viseny/img/shop/categories/08.jpg" alt="Category"><img
-                                                    src="/viseny/img/shop/categories/09.jpg" alt="Category"></div>
-                                    </div>
-                                </a>
-                                <div class="card-body text-center">
-                                    <h4 class="card-title">کیف</h4>
-                                    <p class="text-muted">قیمت از 27000 تومان</p><a
-                                            class="btn btn-outline-primary btn-sm" href="shop-grid-ls.html">نمایش
-                                        محصولات</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center"><a class="btn btn-secondary margin-top-none" href="shop-categories.html">دیدن
-                            همه دسته ها</a></div>
-                </section>
-                <!--Banner Promo-->
-                <section class="alert alert-image-bg alert-dismissible fade show text-center mb-2"
-                         style="background-image: url(/viseny/img/banners/food-banner.jpg);"><span
-                            class="alert-close text-white" data-dismiss="alert"></span>
-                    <div class="h4 text-medium text-white padding-top-1x padding-bottom-1x bg-shadow"><i
-                                class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i> حراج ویژه شب عید با 50%
-                        تخفیف
-                        <div class="mt-3 hidden-xl-up"></div>
-                        <a class="btn btn-primary" href="#">نمایش حراجی</a>
-                    </div>
-                </section>
-                <!-- Featured Products Carousel-->
-                <section class=" pr-2 pl-2 pt-2 pb-2 rounded-5 soft-shadow mb-2" style="background:#fff">
-                    <h6 class="text-right border-title mb-3"> محصولات ویژه و پر طرفدار </h6>
-                    <div class="owl-carousel"
-                         data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;margin&quot;: 10, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star "></i>
-                                    <i class="icon-star "></i>
-                                </div>
-                                <div class="product-badge text-danger">22%</div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/30.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">کفش زنانه مجلسی</a></h3>
-                                <h4 class="product-price">
-                                    <del>99.99</del>
-                                    49.99
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star "></i>
-                                </div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/31.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">عینک ری بن مدل لامبورگینی</a></h3>
-                                <h4 class="product-price">
-                                    <del>134000</del>
-                                    110000
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star "></i>
-                                    <i class="icon-star "></i>
-                                </div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/32.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">کلاه شاپوی مردانه طرح تابستانی</a>
-                                </h3>
-                                <h4 class="product-price">
-                                    <del>99.99</del>
-                                    49.99
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                </div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/33.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">کفش ورزشی شنساکو طرح مشکی -
-                                        سفید</a></h3>
-                                <h4 class="product-price">
-                                    135000
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star "></i>
-                                    <i class="icon-star "></i>
-                                </div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/34.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">دستنبد فلزی با بند چرمی قفل
-                                        شونده</a></h3>
-                                <h4 class="product-price">
-                                    <del>99.99</del>
-                                    49.99
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product-->
-                        <div class="grid-item">
-                            <div class="product-card">
-                                <div class="product-badge text-danger">50%</div>
-                                <div class="rating-stars">
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star filled"></i>
-                                    <i class="icon-star "></i>
-                                    <i class="icon-star "></i>
-                                </div>
-                                <a class="product-thumb mt-3" href="shop-single.html"><img
-                                            src="/viseny/img/shop/products/35.jpg" alt="Product"></a>
-                                <h3 class="product-title"><a href="shop-single.html">کفش ورزشی آدیداس با کفه سفید و
-                                        سبز</a></h3>
-                                <h4 class="product-price">
-                                    <del>99.99</del>
-                                    49.99
-                                    <span> تومان </span>
-                                </h4>
-                                <div class="product-buttons">
-                                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip"
-                                            title="علاقه مندی"><i class="icon-heart"></i></button>
-                                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success"
-                                            data-toast-position="topRight" data-toast-icon="icon-circle-check"
-                                            data-toast-title=" محصول " data-toast-message="با موفقیت به سبد اضافه شد !">
-                                        افزودن به سبد
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!--Banner Promo-->
-                <section class="alert alert-image-bg alert-dismissible fade show text-center mb-2"
-                         style="background-image: url(/viseny/img/banners/banner3_04.jpg);"><span class="alert-close text-white"
-                                                                                          data-dismiss="alert"></span>
-                    <div class="h4 text-medium text-white padding-top-1x padding-bottom-1x bg-shadow"><i
-                                class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i> حراج ویژه شب عید با 50%
-                        تخفیف
-                        <div class="mt-3 hidden-xl-up"></div>
-                        <a class="btn btn-primary" href="#">نمایش حراجی</a>
-                    </div>
-                </section>
-                <!-- Featured Products Carousel Slider -->
+            @include('viseny.collections.newest')
+            <!--Banner Promo-->
+            @include('viseny.banners.midbanner')
+            <!-- Featured Products Carousel-->
+            @include('viseny.collections.mostviewed')
+            <!--Banner Promo-->
+            @include('viseny.banners.botbanner')
+            <!-- Featured Products Carousel Slider -->
                 <section class=" pr-2 pl-2 pt-2 pb-2 rounded-5 soft-shadow mb-2" style="background:#fff">
                     <h6 class="text-right border-title mb-3">کالاهای ویژه همراه با اسلایدر محصولات</h6>
                     <div class="owl-carousel"
@@ -835,7 +570,7 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="fw-section rounded padding-top-4x padding-bottom-4x"
                      style="background-image: url(/viseny/img/blog/06.jpg);"><span class="overlay rounded"
-                                                                           style="opacity: .35;"></span>
+                                                                                   style="opacity: .35;"></span>
                     <div class="text-center">
                         <h3 class="display-4 text-normal text-white text-shadow mb-3">کالکشن های قدیمی</h3>
                         <h2 class="display-2 text-bold text-white text-shadow">فروش بزرگ !</h2>
@@ -858,7 +593,8 @@
                  data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }">
                 <img class="d-block w-110  m-auto" src="/viseny/img/brands/10.png" data-toggle="tooltip"
                      title="خانه عکاسان ایران" alt="Adidas">
-                <img class="d-block w-110  m-auto" src="/viseny/img/brands/11.png" data-toggle="tooltip" title="ایران فیلم"
+                <img class="d-block w-110  m-auto" src="/viseny/img/brands/11.png" data-toggle="tooltip"
+                     title="ایران فیلم"
                      alt="Brooks">
                 <img class="d-block w-110  m-auto" src="/viseny/img/brands/12.png" data-toggle="tooltip"
                      title="راست چین , قالب فارسی" alt="Valentino">
@@ -866,13 +602,16 @@
                      title="شرکت لبنیاتی کاله" alt="Nike">
                 <img class="d-block w-110  m-auto" src="/viseny/img/brands/14.png" data-toggle="tooltip"
                      title="گروه فنی مهندسی انار" alt="Puma">
-                <img class="d-block w-110  m-auto" src="/viseny/img/brands/15.png" data-toggle="tooltip" title="ایران زمین"
+                <img class="d-block w-110  m-auto" src="/viseny/img/brands/15.png" data-toggle="tooltip"
+                     title="ایران زمین"
                      alt="New Balance">
-                <img class="d-block w-110  m-auto" src="/viseny/img/brands/16.png" data-toggle="tooltip" title="پروانه رنگی"
+                <img class="d-block w-110  m-auto" src="/viseny/img/brands/16.png" data-toggle="tooltip"
+                     title="پروانه رنگی"
                      alt="Dior">
                 <img class="d-block w-110  m-auto" src="/viseny/img/brands/17.png" data-toggle="tooltip" title="ژاکت"
                      alt="Dior">
-                <img class="d-block w-110  m-auto" src="/viseny/img/brands/18.png" data-toggle="tooltip" title="ماهان نیلبر"
+                <img class="d-block w-110  m-auto" src="/viseny/img/brands/18.png" data-toggle="tooltip"
+                     title="ماهان نیلبر"
                      alt="Dior">
             </div>
         </div>
@@ -881,136 +620,31 @@
     <section class="container padding-top-2x padding-bottom-2x">
         <div class="row">
             <div class="col-md-3 col-sm-6 text-center mb-30">
-                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="/viseny/img/services/garanti-e.png"
+                <img src="">
+                <h6></h6>
+                <p class="text-muted margin-bottom-none font-small"></p>
+            </div>
+            <div class="col-md-3 col-sm-6 text-center mb-30">
+                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3"
+                     src="/viseny/img/services/garanti-e.png"
                      alt="Shipping">
-                <h6>بازگشت بی قید و شرط محصول</h6>
+                <a href="{{ route('visenyteam') }}"><h6>بازگشت بی قید و شرط محصول</h6></a>
                 <p class="text-muted margin-bottom-none font-small">برگشت کالا در صورت نارضایتی مشتری</p>
             </div>
             <div class="col-md-3 col-sm-6 text-center mb-30">
-                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="/viseny/img/services/pay-e.png"
-                     alt="Money Back">
-                <h6>پرداخت آنلاین درب منزل</h6>
-                <p class="text-muted margin-bottom-none font-small">پس از دریافت و اطمینان از کالا پرداخت کنید</p>
-            </div>
-            <div class="col-md-3 col-sm-6 text-center mb-30">
-                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="/viseny/img/services/express-e.png"
-                     alt="Support">
-                <h6>حمل رایگان و سریع سفارش</h6>
-                <p class="text-muted margin-bottom-none font-small">سفارش خود را بسرعت تحویل بگیرید</p>
-            </div>
-            <div class="col-md-3 col-sm-6 text-center mb-30">
-                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="/viseny/img/services/orginal-e.png"
+                <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3"
+                     src="/viseny/img/services/orginal-e.png"
                      alt="Payment">
                 <h6>ضمانت اصل بودن محصول</h6>
                 <p class="text-muted margin-bottom-none font-small">مطمن باشید کالایی اصل و با کیفیت خواهید داشت</p>
             </div>
+            <div class="col-md-3 col-sm-6 text-center mb-30">
+                <img src="">
+                <h6></h6>
+                <p></p>
+            </div>
         </div>
     </section>
-    <!-- Site Footer-->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Contact Info-->
-                    <section class="widget widget-light-skin">
-                        <h3 class="widget-title">ارتباط با ما</h3>
-                        <p class="text-white">تلفن (محمد شجاع ) : 1323 - 350 - 0935</p>
-                        <p class="text-white">ایمیل : mohammadshoja65@gmail.com</p>
-                        <p class="text-white">وبسایت : <a class="navi-link-light" href="http://moderniz.ir/">http://moderniz.ir</a>
-                        </p>
-                        <p><a class="navi-link-light" href="http://moderniz.ir/">توسعه و ترجمه تیم نرم افزاری مدرنیز</a>
-                        </p>
-                        <a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i
-                                    class="socicon-facebook"></i></a>
-                        <a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i
-                                    class="socicon-twitter"></i></a>
-                        <a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i
-                                    class="socicon-instagram"></i></a>
-                        <a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i
-                                    class="socicon-googleplus"></i></a>
-                    </section>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!-- Mobile App Buttons-->
-                    <section class="widget widget-light-skin">
-                        <h3 class="widget-title">دکمه های مارکت موبایل</h3>
-                        <a class="market-button apple-button mb-light-skin" href="#">
-                            <span class="mb-subtitle">دانلود از مارکت</span>
-                            <span class="mb-title">اپ استور</span>
-                        </a>
-                        <a class="market-button google-button mb-light-skin" href="#">
-                            <span class="mb-subtitle">دانلود از مارکت</span>
-                            <span class="mb-title">گوگل پلی</span></a>
-                        <a class="market-button windows-button mb-light-skin" href="#">
-                            <span class="mb-subtitle">دانلود از مارکت</span>
-                            <span class="mb-title">ویندوز استور</span>
-                        </a>
-                    </section>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!-- About Us-->
-                    <section class="widget widget-links widget-light-skin">
-                        <h3 class="widget-title">درباره ما</h3>
-                        <ul>
-                            <li><a href="#">حرفه و مهارت</a></li>
-                            <li><a href="moderniz.html">درباره مدرنیزز</a></li>
-                            <li><a href="#">بیشتر بدانید</a></li>
-                            <li><a href="#">خدمات و سرویسها</a></li>
-                            <li><a href="#">وبلاگ گروه</a></li>
-                            <li><a href="#">مزایای استفاده از این قالب</a></li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!-- Account / Shipping Info-->
-                    <section class="widget widget-links widget-light-skin">
-                        <h3 class="widget-title">مشخصات حساب و دسترسی شما</h3>
-                        <ul>
-                            <li><a href="account-profile.html">پروفایل شما</a></li>
-                            <li><a href="account-profile.html">قیمت و حمل و نقل</a></li>
-                            <li><a href="account-profile.html">بازپرداخت و جایگزینی</a></li>
-                            <li><a href="account-profile.html">مالیات</a></li>
-                            <li><a href="account-address.html">اطلاعات تحویل</a></li>
-                            <li><a href="account-profile.html">برنامه های وابسته</a></li>
-                        </ul>
-                    </section>
-                </div>
-            </div>
-            <hr class="hr-light mt-2 margin-bottom-2x">
-            <div class="row">
-                <div class="col-md-7 padding-bottom-1x">
-                    <!-- Payment Methods-->
-                    <div class="margin-bottom-1x" style="max-width: 615px;"><img src="/viseny/img/payment_methods.png"
-                                                                                 alt="Payment Methods">
-                    </div>
-                </div>
-                <div class="col-md-5 padding-bottom-1x">
-                    <div class="margin-top-1x hidden-md-up"></div>
-                    <!--Subscription-->
-                    <form class="subscribe-form" action="http://moderniz.ir/" method="post" target="_blank" novalidate>
-                        <div class="clearfix">
-                            <div class="input-group input-light">
-                                <input class="form-control" type="email" name="EMAIL"
-                                       placeholder="ایمیل خود را وارد کنید ..."><span class="input-group-addon"><i
-                                            class="icon-mail"></i></span>
-                            </div>
-                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                <input type="text" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
-                            </div>
-                            <button class="btn btn-primary" type="submit"><i class="icon-check"></i></button>
-                        </div>
-                        <span class="form-text text-sm text-white opacity-50 text-right">برای عضویت در خبرنامه , دریافت تخفیف ها , آخرین اخبار ، و فروش های ویژه </span>
-                    </form>
-                </div>
-            </div>
-            <!-- Copyright-->
-            <p class="footer-copyright text-right">© کلیه حقوق محفوظ است , ایجاد شده توسط &nbsp;<i
-                        class="icon-heart text-danger"></i><a href="http://moderniz.ir/" target="_blank"> &nbsp;محمد
-                    شجاع</a></p>
-        </div>
-    </footer>
 </div>
-<!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
-<!-- Backdrop-->
-<div class="site-backdrop"></div>
+<!-- Site Footer-->
+@include('viseny.layouts.footer')

@@ -60,17 +60,52 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'commentsController@index')->name('admin.comment');
         Route::post('/product/store', 'commentsController@store')->name('admin.comment.store');
         Route::get('/product/delete/{comment_id}', 'commentsController@delete')->name('admin.comment.delete');
-        Route::post('/product/confirm/{comment_id}','commentsController@confirm')->name('admin.comment.confirm');
+        Route::post('/product/confirm/{comment_id}', 'commentsController@confirm')->name('admin.comment.confirm');
     });
 });
 
-Route::group(['prefix' => 'users'], function () {
-
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('/{user_id}', 'admin\UsersController@profile')->name('users.profile.account');
+    Route::post('/{user_id}/update', 'admin\UsersController@updateProfile')->name('users.profile.account.update');
+    Route::get('/{user_id}/orders', 'admin\UsersController@profileOrders')->name('users.profile.orders');
+    Route::get('/{user_id}/addresses', 'admin\UsersController@profileAddresses')->name('users.profile.addresses');
+    Route::post('/{user_id}/addresses/update', 'admin\UsersController@updateAddress')->name('users.profile.addresses.update');
+    Route::get('/{user_id}/favorites', 'admin\UsersController@profileFavorites')->name('users.profile.favorites');
+    Route::get('/{user_id}/tickets', 'admin\UsersController@profileTickets')->name('users.profile.tickets');
 });
 
 Route::get('/', 'admin\tabloController@customer')->name('users.home');
 Route::get('/product/{tablo_id}', 'admin\tabloController@singleProduct')->name('products.single');
-Route::get('/profile/{user_id}','admin\UsersController@profile')->name('users.profile');
-Route::get('/register','admin\UsersController@log')->name('user.log');
-Route::post('/register/store','Auth\RegisterController@create')->name('user.register.store');
-Route::post('/login/check','Auth\LoginController@login')->name('user.login.store');
+
+
+Auth::routes();
+Route::post('register/store', 'Auth\RegisterController@create')->name('register.store');
+//Route::post('login/check','Auth\LoginController@check')->name('login.check');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'admin\tabloController@about')->name('about');
+
+/* Ecommerce */
+Route::group(['prefix' => 'basket', 'namespace' => 'Ecommerce'], function () {
+    Route::get('/', ['as' => 'basket', 'uses' => 'BasketController@index']);
+    Route::post('/', ['as' => 'basket', 'uses' => 'BasketController@update']);
+    Route::any('add', ['as' => 'basket.item.add', 'uses' => 'BasketController@add']);
+    Route::get('{id}/remove', ['as' => 'basket.item.remove', 'uses' => 'BasketController@delete']);
+    Route::get('{id}/inc', ['as' => 'basket.item.inc', 'uses' => 'BasketController@inc']);
+    Route::get('{id}/dec', ['as' => 'basket.item.dec', 'uses' => 'BasketController@dec']);
+    Route::get('destroy', ['as' => 'basket.destroy', 'uses' => 'BasketController@destroy']);
+    Route::get('debug', ['as' => 'basket.debug', 'uses' => 'BasketController@debug']);
+
+    Route::get('demo', ['as' => 'basket.demo', 'uses' => 'BasketController@demo']);
+});
+
+Route::group(['prefix' => 'VisenyTeam'], function () {
+    Route::get('/', 'admin\tabloController@team')->name('visenyteam');
+//    Route::get('/{id}','admin\UsersController@')->name('visenyteam.user');
+});
+
+Route::group(['prefix' => 'product', 'namespace' => 'Ecommerce'], function () {
+    Route::get('/', ['as' => 'product.index', 'uses' => 'ProductController@index']);
+    Route::get('items', ['as' => 'product.items', 'uses' => 'ProductController@items']);
+    Route::get('item/{id}', ['as' => 'product.item', 'uses' => 'ProductController@item'])->where('id', '[0-9]+');
+});
+

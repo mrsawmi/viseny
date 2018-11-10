@@ -22,7 +22,7 @@
                             <label for="userEmail">آدرس ایمیل</label>
                             <input id="userEmail" name="userEmail" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
-                                   value="{{ $user->user_email  }}"
+                                   value="{{ $user->email  }}"
                             >
                         </div>
                         <div class="form-group">
