@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content')
     <div class="card-title">
-        <h4>لیست تیکت ها </h4>
+        <h4>لیست سفارشات</h4>
     </div>
     <div class="card-body">
         @include('partials.success')
@@ -28,11 +28,17 @@
                         <td>{{ $order->tablo->tablo_price }}</td>
                         <td>{{ $order->tablo->tablo_img }}</td>
                         <td>
-                            <a href="">
-                                پاسخ&nbsp;
-                            </a>
-                            <a href="">
-                                بستن </a>
+                            <form method="post"
+                                  action="{{ route('admin.order.confirm',[$order->order_id]) }}">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="confirmValue" value="1">
+                                @if($order->order_status == 0)
+                                    <input type="submit" value="تایید نشده">
+                                @else
+                                    تایید شده
+                                @endif
+                                <span class="slider"></span>
+                            </form>
                         </td>
                     </tr>
 

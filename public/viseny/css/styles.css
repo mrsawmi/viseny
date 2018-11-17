@@ -6145,7 +6145,7 @@ video {
 }
 
 .site-logo {
-    width: 154px;
+    width: 180px;
     padding: 12px 0 12px 25px;
     text-decoration: none;
 }
@@ -6576,8 +6576,8 @@ video {
     }
 
     .site-logo {
-        width: 145px;
-        padding-left: 16px;
+        width: 175px;
+        padding-left: 20px;
     }
 }
 

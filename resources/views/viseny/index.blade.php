@@ -168,7 +168,7 @@
                                     <h3 class="h2 text-normal mb-1">جدید</h3>
                                     <h2 class="display-2 text-bold mb-2">عینک آفتابی</h2>
                                     <h4 class="h4 text-normal mb-4">حراج آخر فصل تاپ کالا</h4>
-                                    <div class="countdown mb-3" data-date-time="09/30/2018 12:00:00">
+                                    <div class="countdown mb-3" data-date-time="09/30/2019 12:00:00">
                                         <div class="item">
                                             <div class="days">00</div>
                                             <span class="days_ref">روز</span>
@@ -443,126 +443,11 @@
                 </section>
 
                 <!-- Product Widgets-->
-                <section class="mb-2" style="background:#fff">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="widget widget-featured-products widget-border">
-                                <h3 class="widget-title"> محصولات پربازدید تاپ کالا</h3>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/30.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">میز سه پایه فلزی</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان </span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/31.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">سبد پلاستیکی قرمز رنگ با دسته
-                                                فلزی</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/32.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">آبکش منحنی سبز رنگ</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/33.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">جا ادویه دوطبقه چوبی طرح شلوغ
-                                                پلوغ و جمع و جور</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/34.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">دستگاه آرایشی چند کاره</a>
-                                        </h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/35.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">اتوی موی دولبه برقی بسیار
-                                                باکیفیت و کم مصرف</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/36.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">دستگاه فر دستی باکیفیت</a>
-                                        </h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/37.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">عینک ری بن طرح بنفش</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/38.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">موبایل سامسونگ جی 5 مدل 2017
-                                                و سنسور انگشت</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/39.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">نمک پاشی دستی چند کاره
-                                                خشابی</a></h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                                <!-- Entry-->
-                                <div class="entry">
-                                    <div class="entry-thumb"><a href="shop-single.html"><img
-                                                    src="/viseny/img/shop/products/40.jpg" alt="Product"></a></div>
-                                    <div class="entry-content">
-                                        <h4 class="entry-title"><a href="shop-single.html">کفش نایک طرح لامبورگینی </a>
-                                        </h4>
-                                        <span class="entry-meta"><del>45000</del> 27500 تومان</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                @include('viseny.topviewed')
+                <!-- container -->
             </aside>
-
         </div><!--End Container Row-->
-    </section><!-- container -->
+    </section>
 
     <!-- Promo #2-->
     <section class="container mb-3">

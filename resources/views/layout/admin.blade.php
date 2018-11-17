@@ -318,6 +318,13 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-book"></i><span
+                                    class="hide-menu">فاکتور ها
+                        </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('admin.factor') }}">لیست فاکتور ها</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-book"></i><span
                                     class="hide-menu">تیکت ها
                         </span></a>
                         <ul aria-expanded="false" class="collapse">
@@ -330,6 +337,14 @@
                         </span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{ route('admin.comment') }}">لیست دیدگاه ها</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-book"></i><span
+                                    class="hide-menu">FAQ / Helps
+                        </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ route('admin.faq') }}">لیست سوالات ما</a></li>
+                            <li><a href="{{ route('admin.faq.users') }}">لیست سوالات ارسالی</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tags"></i><span

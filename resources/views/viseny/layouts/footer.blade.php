@@ -9,8 +9,13 @@
                 <!-- Contact Info-->
                 <section class="widget widget-light-skin">
                     <h3 class="widget-title">ارتباط با ما</h3>
-                    <p class="text-white">تلفن (محمد شجاع ) : 1323 - 350 - 0935</p>
-                    <p class="text-white">ایمیل : mohammadshoja65@gmail.com</p>
+                    <p class="text-white">تلفن ( شایان مایلی ) : 1800820-0938</p>
+                    <p class="text-white">
+                        ایمیل :
+                        <a href="https://shayanmayeli@gmail.com">
+                         Shayanmayeli@gmail.com
+                        </a>
+                    </p>
                     <p class="text-white">وبسایت : <a class="navi-link-light" href="http://moderniz.ir/">http://moderniz.ir</a>
                     </p>
                     <p><a class="navi-link-light" href="http://moderniz.ir/">توسعه و ترجمه تیم نرم افزاری مدرنیز</a>
@@ -75,10 +80,11 @@
         <div class="row">
             <div class="col-md-7 padding-bottom-1x">
                 <!-- Payment Methods-->
-                <div class="margin-bottom-1x" style="max-width: 615px;"><img src="{{ asset('/storage/com.zarinpal.ewallets.png') }}"
-                                                                             width="100"
-                                                                             height="100"
-                                                                             alt="Payment Methods">
+                <div class="margin-bottom-1x" style="max-width: 615px;"><img
+                            src="{{ asset('/storage/com.zarinpal.ewallets.png') }}"
+                            width="100"
+                            height="100"
+                            alt="Payment Methods">
                 </div>
             </div>
             <div class="col-md-5 padding-bottom-1x">

@@ -61,12 +61,19 @@
                 </div>
             </div>
             <div class="sp-buttons mt-2 mb-2">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title=""
-                        data-original-title="علاقه مندی"><i class="icon-heart"></i></button>
-                <button class="btn btn-primary" data-toast="" data-toast-type="success" data-toast-position="topRight"
-                        data-toast-icon="icon-circle-check" data-toast-title=" محصول "
-                        data-toast-message="به سبد خرید اضافه شد"><i class="icon-bag"></i> افزودن به سبد خرید
-                </button>
+                <form method="post" action="{{ route('basket') }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="orderID" value="{{ $product->tablo_id }}">
+                    <input type="hidden" name="tabloPrice" value="{{ $product->tablo_price }}">
+                    {{--<button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title=""--}}
+                    {{--data-original-title="علاقه مندی"><i class="icon-heart"></i></button>--}}
+                    <button class="btn btn-primary" data-toast="" data-toast-type="success"
+                            type="submit"
+                            data-toast-position="topRight"
+                            data-toast-icon="icon-circle-check" data-toast-title=" محصول "
+                            data-toast-message="به سبد خرید اضافه شد"><i class="icon-bag"></i> افزودن به سبد خرید
+                    </button>
+                </form>
             </div>
         </div>
     </div>

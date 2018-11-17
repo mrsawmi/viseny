@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class tabloController extends Controller
 {
@@ -143,6 +144,7 @@ class tabloController extends Controller
     {
         $newestProducts = DB::table('tablos')->orderBy('created_at', 'desc')
             ->get();
+        $newestProducts = array_reverse($newestProducts->toArray());
         $mostViewed = DB::table('tablos')->orderByDesc('tablo_view_count')->get();
         $user = Auth::user();
         $products = tablo::get();
@@ -152,18 +154,22 @@ class tabloController extends Controller
     public function singleProduct(Request $request, $tablo_id)
     {
         $product = tablo::find($tablo_id);
-        if ($product && $product instanceof tablo) {
-            $tabloData = [
-                'tablo_view_count' => ($product->tablo_view_count + 1)
-            ];
-            $product->update($tabloData);
+        if (!empty($product)) {
+            if ($product && $product instanceof tablo) {
+                $tabloData = [
+                    'tablo_view_count' => ($product->tablo_view_count + 1)
+                ];
+                $product->update($tabloData);
+            }
+            $comments = comment::with('users')->get();
+            return view('viseny.singleproduct', compact('product', 'comments'));
         }
-        $comments = comment::with('users')->get();
-        return view('viseny.singleproduct', compact('product', 'comments'));
+        return back()->with('status','محصول مورد نظر یافت نشد...!');
     }
 
     public function about()
     {
+        $_SESSION['tracker'] = URL::current();
         $teamMembers = User::where('user_group', '!=', 1)->get();
         return view('viseny.about', compact('teamMembers'));
     }
@@ -172,6 +178,11 @@ class tabloController extends Controller
     {
         $teamUsers = User::where('user_group', '!=', 1)->get();
         return view('viseny.user.profile.team.list', compact('teamUsers'));
+    }
+
+    public function contactUs()
+    {
+        return view('viseny.contact');
     }
 }
 

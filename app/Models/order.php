@@ -19,6 +19,11 @@ class order extends Model
         return $this->belongsTo(User::class, 'order_user_id');
     }
 
+    public function factor()
+    {
+        return $this->hasOne(Factor::class,'order_id');
+    }
+
     public function tablo()
     {
         return $this->belongsTo(tablo::class, 'order_tablo_id');

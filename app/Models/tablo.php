@@ -14,6 +14,10 @@ class tablo extends Model
         'tablo_id'
     ];
 
+    public function factor()
+    {
+        return $this->hasOne(Factor::class, 'tablo_id');
+    }
 
     public function order()
     {

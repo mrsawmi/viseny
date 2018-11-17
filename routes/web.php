@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'ordersController@index')->name('admin.order');
         Route::post('store', 'ordersController@store')->name('admin.order.store');
         Route::get('delete/{order_id}', 'ordersController@answer')->name('admin.order.delete');
+        Route::post('/store/{order_id}', 'ordersController@confirm')->name('admin.order.confirm');
         Route::get('edit/{order_id}', 'ordersController@feedback')->name('admin.order.sendfeedback');
         Route::post('update/{order_id}', 'ordersController@close')->name('admin.order.close');
     });
@@ -62,9 +63,20 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/delete/{comment_id}', 'commentsController@delete')->name('admin.comment.delete');
         Route::post('/product/confirm/{comment_id}', 'commentsController@confirm')->name('admin.comment.confirm');
     });
+    Route::group(['prefix' => 'factor'], function () {
+        Route::get('/', 'admin\FactorController@index')->name('admin.factor');
+        Route::post('/{factor_id}', 'admin\FactorController@confirm')->name('admin.factor.confirm');
+    });
+    Route::group(['prefix' => 'faq'],function (){
+        Route::get('/','admin\FaqController@adminIndex')->name('admin.faq');
+        Route::post('/store','admin\FaqController@adminStore')->name('admin.faq.store');
+        Route::get('/delete/{faq_id}','admin\FaqController@adminIndex')->name('admin.faq.delete');
+        Route::get('/usersQuestions','admin\FaqController@usersQuestions')->name('admin.faq.users');
+        Route::post('/answer/{faq_id}','admin\FaqController@answer')->name('admin.faq.answer');
+    });
 });
 
-Route::group(['prefix' => 'profile'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
     Route::get('/{user_id}', 'admin\UsersController@profile')->name('users.profile.account');
     Route::post('/{user_id}/update', 'admin\UsersController@updateProfile')->name('users.profile.account.update');
     Route::get('/{user_id}/orders', 'admin\UsersController@profileOrders')->name('users.profile.orders');
@@ -73,16 +85,6 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('/{user_id}/favorites', 'admin\UsersController@profileFavorites')->name('users.profile.favorites');
     Route::get('/{user_id}/tickets', 'admin\UsersController@profileTickets')->name('users.profile.tickets');
 });
-
-Route::get('/', 'admin\tabloController@customer')->name('users.home');
-Route::get('/product/{tablo_id}', 'admin\tabloController@singleProduct')->name('products.single');
-
-
-Auth::routes();
-Route::post('register/store', 'Auth\RegisterController@create')->name('register.store');
-//Route::post('login/check','Auth\LoginController@check')->name('login.check');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about', 'admin\tabloController@about')->name('about');
 
 /* Ecommerce */
 Route::group(['prefix' => 'basket', 'namespace' => 'Ecommerce'], function () {
@@ -94,7 +96,6 @@ Route::group(['prefix' => 'basket', 'namespace' => 'Ecommerce'], function () {
     Route::get('{id}/dec', ['as' => 'basket.item.dec', 'uses' => 'BasketController@dec']);
     Route::get('destroy', ['as' => 'basket.destroy', 'uses' => 'BasketController@destroy']);
     Route::get('debug', ['as' => 'basket.debug', 'uses' => 'BasketController@debug']);
-
     Route::get('demo', ['as' => 'basket.demo', 'uses' => 'BasketController@demo']);
 });
 
@@ -103,9 +104,21 @@ Route::group(['prefix' => 'VisenyTeam'], function () {
 //    Route::get('/{id}','admin\UsersController@')->name('visenyteam.user');
 });
 
+Route::group(['prefix'=>'faq'],function (){
+    Route::get('/','admin\FaqController@index')->name('users.faq');
+    Route::get('/store','admin\FaqController@index')->name('users.faq.store');
+});
+
 Route::group(['prefix' => 'product', 'namespace' => 'Ecommerce'], function () {
     Route::get('/', ['as' => 'product.index', 'uses' => 'ProductController@index']);
     Route::get('items', ['as' => 'product.items', 'uses' => 'ProductController@items']);
     Route::get('item/{id}', ['as' => 'product.item', 'uses' => 'ProductController@item'])->where('id', '[0-9]+');
 });
+
+Route::get('/', 'admin\tabloController@customer')->name('users.home');
+Route::get('/product/{tablo_id}', 'admin\tabloController@singleProduct')->name('products.single');
+Route::get('/contact', 'admin\tabloController@contactUs')->name('contactus');
+Route::get('/about', 'admin\tabloController@about')->name('about');
+Route::post('register/store', 'Auth\RegisterController@create')->name('register.store');
+Auth::routes();
 

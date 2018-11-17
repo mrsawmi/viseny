@@ -7,6 +7,7 @@ use App\Http\Requests\UserCreateRequest;
 use http\Env\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {

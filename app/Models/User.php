@@ -36,6 +36,10 @@ class User extends Authenticatable
     ];
 
 
+    public function factors()
+    {
+        return $this->belongsTo(Factor::class,'user_fullName');
+    }
     public function orders()
     {
         return $this->hasMany(order::class, 'user_id');

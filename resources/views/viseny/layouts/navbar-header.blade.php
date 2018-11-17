@@ -14,8 +14,9 @@
                                                            data-toggle="offcanvas"></a>
             <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle " href="#mobile-menu"
                                                        data-toggle="offcanvas"></a>
-            <!-- Site Logo--><a class="site-logo" href="index-2.html"><img src="/viseny/img/logo/logo.png"
-                                                                           alt="Unishop"></a>
+            <!-- Site Logo--><a class="site-logo" href="{{ route('users.home') }}"><img
+                        src="{{ asset('/storage/logo.png') }}"
+                        alt="VisenyArt"></a>
         </div>
     </div>
     <!-- Main Navigation-->
@@ -35,8 +36,6 @@
                     <li><a class="d-block img-thumbnail text-center navi-link" href="coming-soon.html"><img
                                     alt="More To Come. Stay Tuned!" src="/viseny/img/mega-menu-home/04.jpg">
                             <h6 class="mt-3">محصولات طبقه بندی شده</h6></a></li>
-                    </div>
-                    </li>
                 </ul>
             </li>
             <li><a href="shop-grid-ls.html"><span>خرید / فروشگاه</span></a>
@@ -153,13 +152,10 @@
             <li><a href="#"><span>صفحات</span></a>
                 <ul class="sub-menu">
                     <li><a href="{{ route('about') }}">درباره ما</a></li>
-                    <li><a href="contacts.html">ارتباط با ما</a></li>
-                    <li><a href="faq.html">Help / FAQ</a></li>
-                    <li><a href="order-tracking.html">سفارشات ثبت شده</a></li>
+                    <li><a href="{{ route('contactus') }}">ارتباط با ما</a></li>
+                    <li><a href="{{ route('users.faq') }}">Help / FAQ</a></li>
+                    <li><a href="{{ route('users.profile.orders',[\Illuminate\Support\Facades\Auth::user()]) }}">سفارشات ثبت شده</a></li>
                     <li><a href="search-results.html">جستجوی نتایج</a></li>
-                    <li><a href="404.html">404 صفحه پیدا نشد</a></li>
-                    <li><a href="coming-soon.html">بزودی می آییم</a></li>
-                    <li><a class="text-danger" href="docs/dev-setup.html">مستندات</a></li>
                 </ul>
             </li>
             <li class="has-megamenu"><a href="components/accordion.html"><span>قابلیت ها</span></a>
@@ -216,25 +212,37 @@
         <div class="inner">
             <div class="tools">
                 <div class="search"><i class="icon-search"></i></div>
-                <div class="account"><a href="account-orders.html"></a><i class="icon-head"></i>
-                    <ul class="toolbar-dropdown">
-                        <li class="sub-menu-user">
-                            <div class="user-ava"><img src="/viseny/img/account/user-ava-sm.jpg" alt="Daniel Adams">
-                            </div>
-                            <div class="user-info">
-                                <h6 class="user-name">محمد شجاع</h6><span
-                                        class="text-xs text-muted">290 خرید ثبت شده</span>
-                            </div>
-                        </li>
-                        <li><a href="account-profile.html">مشخصات من</a></li>
-                        <li><a href="account-orders.html">لیست سفارشات</a></li>
-                        <li><a href="account-wishlist.html">علاقه مندیها</a></li>
-                        <li class="sub-menu-separator"></li>
-                        <li><a href="#" data-toggle="modal" data-target="#modalLogin"><i class="icon-unlock"></i>جعبه
-                                ورود</a></li>
-                        <li><a href="#"> <i class="icon-unlock"></i>خروج</a></li>
-                    </ul>
-                </div>
+                @if(\Illuminate\Support\Facades\Auth::check())
+                    <div class="account"><a
+                                href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()]) }}"></a><i
+                                class="icon-head"></i>
+                        <ul class="toolbar-dropdown">
+                            <li class="sub-menu-user">
+                                @if(!empty(\Illuminate\Support\Facades\Auth::user()->user_img))
+                                    <div class="user-ava"><img
+                                                src="{{ asset('/storage/profile/'.\Illuminate\Support\Facades\Auth::user()->user_img) }}"
+                                                alt="Daniel Adams">
+                                    </div>
+                                @endif
+                                <div class="user-info">
+                                    <h6 class="user-name">{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}</h6>
+                                    <span
+                                            class="text-xs text-muted">{{ \Illuminate\Support\Facades\Auth::user()->user_point }}
+                                        امتیاز ثبت شده</span>
+                                </div>
+                            </li>
+                            <li><a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()]) }}">مشخصات
+                                    من</a></li>
+                            <li><a href="{{ route('users.profile.orders',\Illuminate\Support\Facades\Auth::user()) }}">لیست
+                                    سفارشات</a></li>
+                            <li class="sub-menu-separator"></li>
+                            <li><a href="{{ route('logout') }}"> <i
+                                            class="icon-unlock"></i>خروج</a></li>
+                        </ul>
+                    </div>
+                @else
+                    <div class="account"><a href="{{ route('login') }}"></a></div>
+                @endif
                 <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span
                             class="subtotal">98300 تومان</span>
                     <div class="toolbar-dropdown">
