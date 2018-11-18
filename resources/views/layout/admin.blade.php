@@ -345,6 +345,7 @@
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{ route('admin.faq') }}">لیست سوالات ما</a></li>
                             <li><a href="{{ route('admin.faq.users') }}">لیست سوالات ارسالی</a></li>
+                            <li><a href="{{ route('admin.faq.create') }}">ایجاد سوال</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tags"></i><span

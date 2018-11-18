@@ -21,7 +21,8 @@
             </div>
         </div>
     </div>
-    <!-- Page Content-->
+@include('partials.success')
+<!-- Page Content-->
     <div class="container padding-bottom-3x">
         <div class="row">
             <!-- Side Menu-->
@@ -82,7 +83,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="help_category">دسته بندی</label>
-                            <select class="form-control form-control-rounded" id="help_category">
+                            <select class="form-control form-control-rounded" name="faqCategory" id="help_category">
                                 <option>مدیریت حساب</option>
                                 <option>سیاست بازپرداخت</option>
                                 <option>نحوه پرداخت</option>

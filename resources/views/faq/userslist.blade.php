@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content')
     <div class="card-title">
-        <h4>لیست سوالات ما </h4>
+        <h4>لیست سوالات ارسالی </h4>
     </div>
     <div class="card-body">
         @include('partials.success')
@@ -12,15 +12,15 @@
                     <th>#</th>
                     <th>نام و نام خانوادگی</th>
                     <th>ایمیل</th>
+                    <th>عنوان سوال</th>
                     <th>متن سوال</th>
-                    <th>متن پاسخ</th>
                     <th>دسته بندی</th>
                     <th>وضعیت</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($questions as $question)
+                @foreach($usersQuestions as $question)
                     <tr>
                         <th scope="row">{{ $question->faq_id }}</th>
                         <td>{{ $question->faq_fullName }}</td>
@@ -35,11 +35,9 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="changeStatus" value="1">
                                     @if($question->faq_status == 0)
-                                        <input type="submit" name="answerQuestion" value="پاسخ">
-                                    @elseif($question->faq_status == 1)
-                                        پاسخ داده شده
+                                        <input class="form-control" type="submit" name="answerQuestion" value="پاسخ">
                                     @else
-                                        منتشر شده
+                                        پاسخ داده شده
                                     @endif
                                     <span class="slider"></span>
                                 </form>

@@ -117,7 +117,13 @@
                 <ul class="sub-menu">
                     <li><a href="{{ route('register') }}">ثبت نام</a></li>
                     <li><a href="{{ route('login') }}">ورود</a></li>
-                    <li><a href="{{ route('logout') }}">خروج از حساب کاربری</a></li>
+                    <li><a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            خروج از حساب کاربری
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form></li>
                     <li><a href="account-password-recovery.html">فراموشی رمز عبور</a></li>
                     <li><a href="{{ route('users.profile.orders',[\Illuminate\Support\Facades\Auth::user()]) }}">لیست
                             سفارشات</a></li>
@@ -154,7 +160,8 @@
                     <li><a href="{{ route('about') }}">درباره ما</a></li>
                     <li><a href="{{ route('contactus') }}">ارتباط با ما</a></li>
                     <li><a href="{{ route('users.faq') }}">Help / FAQ</a></li>
-                    <li><a href="{{ route('users.profile.orders',[\Illuminate\Support\Facades\Auth::user()]) }}">سفارشات ثبت شده</a></li>
+                    <li><a href="{{ route('users.profile.orders',[\Illuminate\Support\Facades\Auth::user()]) }}">سفارشات
+                            ثبت شده</a></li>
                     <li><a href="search-results.html">جستجوی نتایج</a></li>
                 </ul>
             </li>
@@ -221,7 +228,12 @@
                                 @if(!empty(\Illuminate\Support\Facades\Auth::user()->user_img))
                                     <div class="user-ava"><img
                                                 src="{{ asset('/storage/profile/'.\Illuminate\Support\Facades\Auth::user()->user_img) }}"
-                                                alt="Daniel Adams">
+                                                alt="{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}">
+                                    </div>
+                                    @else
+                                    <div class="user-ava"><img
+                                                src="{{ asset('/storage/profile/default.png') }}"
+                                                alt="{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}">
                                     </div>
                                 @endif
                                 <div class="user-info">
@@ -231,17 +243,25 @@
                                         امتیاز ثبت شده</span>
                                 </div>
                             </li>
-                            <li><a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()]) }}">مشخصات
+                            <li>
+                                <a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()]) }}">مشخصات
                                     من</a></li>
                             <li><a href="{{ route('users.profile.orders',\Illuminate\Support\Facades\Auth::user()) }}">لیست
                                     سفارشات</a></li>
                             <li class="sub-menu-separator"></li>
-                            <li><a href="{{ route('logout') }}"> <i
-                                            class="icon-unlock"></i>خروج</a></li>
+                            <li><a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="icon-unlock"></i>خروج از حساب کاربری
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form></li>
                         </ul>
                     </div>
                 @else
-                    <div class="account"><a href="{{ route('login') }}"></a></div>
+                    <div class="account"><a
+                                href="{{ route('login') }}"></a><i
+                                class="icon-head"></i></div>
                 @endif
                 <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span
                             class="subtotal">98300 تومان</span>

@@ -67,12 +67,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'admin\FactorController@index')->name('admin.factor');
         Route::post('/{factor_id}', 'admin\FactorController@confirm')->name('admin.factor.confirm');
     });
-    Route::group(['prefix' => 'faq'],function (){
-        Route::get('/','admin\FaqController@adminIndex')->name('admin.faq');
-        Route::post('/store','admin\FaqController@adminStore')->name('admin.faq.store');
-        Route::get('/delete/{faq_id}','admin\FaqController@adminIndex')->name('admin.faq.delete');
-        Route::get('/usersQuestions','admin\FaqController@usersQuestions')->name('admin.faq.users');
-        Route::post('/answer/{faq_id}','admin\FaqController@answer')->name('admin.faq.answer');
+    Route::group(['prefix' => 'faq'], function () {
+        Route::get('/', 'admin\FaqController@adminIndex')->name('admin.faq');
+        Route::get('/create', 'admin\FaqController@adminCreate')->name('admin.faq.create');
+        Route::post('/store', 'admin\FaqController@adminStore')->name('admin.faq.store');
+        Route::get('/delete/{faq_id}', 'admin\FaqController@delete')->name('admin.faq.delete');
+        Route::get('/usersQuestions', 'admin\FaqController@usersQuestions')->name('admin.faq.users');
+        Route::post('/answer/{faq_id}', 'admin\FaqController@answer')->name('admin.faq.answer');
+        Route::get('/answer/send','admin\FaqController@sendAnswer')->name('admin.faq.sendAnswer');
     });
 });
 
@@ -104,9 +106,9 @@ Route::group(['prefix' => 'VisenyTeam'], function () {
 //    Route::get('/{id}','admin\UsersController@')->name('visenyteam.user');
 });
 
-Route::group(['prefix'=>'faq'],function (){
-    Route::get('/','admin\FaqController@index')->name('users.faq');
-    Route::get('/store','admin\FaqController@index')->name('users.faq.store');
+Route::group(['prefix' => 'faq'], function () {
+    Route::get('/', 'admin\FaqController@index')->name('users.faq');
+    Route::post('/store', 'admin\FaqController@store')->name('users.faq.store');
 });
 
 Route::group(['prefix' => 'product', 'namespace' => 'Ecommerce'], function () {

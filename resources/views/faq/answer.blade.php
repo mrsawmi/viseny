@@ -9,13 +9,20 @@
                 <div class="basic-form p-10">
                     @include('partials.errors')
                     @include('partials.success')
-                    <form method="post" action="{{ route('admin.faq.store') }}">
+                    <form method="post" action="{{ route('admin.faq.sendAnswer') }}">
                         {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="userEmail">شناسه سوال</label>
+                            <input id="userEmail" name="faqId" type="email"
+                                   class="form-control input-default hasPersianPlaceHolder"
+                                   value="{{ $faqs->faq_id }}"
+                                   disabled>
+                        </div>
                         <div class="form-group">
                             <label for="userFullName">نام و نام خانوادگی</label>
                             <input id="userFullName" name="userFullName" type="text"
                                    class="form-control input-default hasPersianPlaceHolder"
-                                   value="{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}"
+                                   value="{{ $faqs->faq_fullName }}"
                                    disabled
                             >
                         </div>
@@ -23,19 +30,22 @@
                             <label for="userEmail">آدرس ایمیل</label>
                             <input id="userEmail" name="userEmail" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
-                                   value="{{ \Illuminate\Support\Facades\Auth::user()->email }}"
+                                   value="{{ $faqs->faq_email }}"
                                    disabled>
                         </div>
-                        <div class="form-group">w
+                        <div class="form-group">
                             <label for="questionTitle">عنوان سوال</label>
-                            <input class="form-control input-default" name="questionTitle" id="questionTitle"
-                                      required="">
+                            <input id="userEmail" name="faqTitle" type="email"
+                                   class="form-control input-default hasPersianPlaceHolder"
+                                   value="{{ $faqs->faq_title }}"
+                                   disabled>
                         </div>
                         <div class="form-group">
                             <label for="questionTitle">متن سوال</label>
-                            <textarea class="form-control input-default" name="questionCaption" id="questionTitle"
-                                      rows="5"
-                                      required=""></textarea>
+                            <input id="userEmail" name="faqQuestion" type="email"
+                                   class="form-control input-default hasPersianPlaceHolder"
+                                   value="{{ $faqs->faq_caption }}"
+                                   disabled>
                         </div>
                         <div class="form-group">
                             <label for="questionAnswer">متن پاسخ</label>
@@ -45,12 +55,16 @@
                         </div>
                         <div class="form-group">
                             <label for="questionCategory">دسته بندی</label>
-                            <select class="form-control persianText" name="questionCategory" id="questionCategory">
-                                <option>مدیریت حساب</option>
-                                <option>سیاست بازپرداخت</option>
-                                <option>نحوه پرداخت</option>
-                                <option>اطلاعات خرید</option>
-                                <option>برنامه ارجاع</option>
+                            <input id="questionCategory" name="userEmail" type="email"
+                                   class="form-control input-default hasPersianPlaceHolder"
+                                   value="{{ $faqs->faq_category }}"
+                                   disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="questionStatus">وضعیت</label>
+                            <select class="form-control persianText" name="questionPublish" id="questionStatus">
+                                <option>ارسال ایمیل به کاربر</option>
+                                <option>انتشار عمومی</option>
                             </select>
                         </div>
                         <div class="form-group m-t-20">

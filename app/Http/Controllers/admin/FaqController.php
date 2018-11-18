@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
     public function index(Request $request)
     {
-        $questions = Faq::where('faq_status', '==', 0)->get();
+        $questions = Faq::where('faq_status', '=', 3)->get();
         return view('viseny.faq', compact('questions'));
     }
 
@@ -32,8 +32,18 @@ class FaqController extends Controller
     public function adminIndex()
     {
         if (Auth::check()) {
-            $questions = Faq::get();
+            $questions = Faq::where('faq_status', '!=', 0)->get();
             return view('faq.list', compact('questions'));
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+    public function usersQuestions()
+    {
+        if (Auth::check()) {
+            $usersQuestions = Faq::where('faq_status', '=', 0)->get();
+            return view('faq.userslist', compact('usersQuestions'));
         } else {
             return redirect()->route('login');
         }
@@ -56,12 +66,13 @@ class FaqController extends Controller
     {
         if (Auth::check()) {
             $faq = Faq::create([
-                'faq_fullName' => $request->input('userFullName'),
-                'faq_email' => $request->input('userEmail'),
+                'faq_fullName' => Auth::user()->user_fullName,
+                'faq_email' => Auth::user()->email,
                 'faq_title' => $request->input('questionTitle'),
                 'faq_category' => $request->input('questionCategory'),
+                'faq_answer' => $request->input('questionAnswer'),
                 'faq_caption' => $request->input('questionCaption'),
-                'faq_status' => 1,
+                'faq_status' => 3,
             ]);
             if ($faq && $faq instanceof Faq) {
                 return back()->with('status', 'سوال شما با موفقیت ارسال گردید...!');
@@ -73,6 +84,29 @@ class FaqController extends Controller
 
     public function answer(Request $request, $faq_id)
     {
+        if (Auth::check()) {
+            $faqs = Faq::find($faq_id);
+            return view('faq.answer', compact('faqs'));
+        } else {
+            return redirect()->route('login');
+        }
+    }
 
+    public function sendAnswer(Request $request, $faq_id)
+    {
+        if (Auth::check()) {
+            if ($request->input('questionPublish') == 'ارسال ایمیل به کاربر') {
+                //send an email
+            } else {
+                //send an email then set status to 3
+            }
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+    public function adminCreate()
+    {
+        return view('faq.create');
     }
 }
