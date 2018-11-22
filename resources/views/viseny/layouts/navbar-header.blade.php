@@ -22,7 +22,7 @@
     <!-- Main Navigation-->
     <nav class="site-menu">
         <ul>
-            <li class="has-megamenu active"><a href="{{ route('users.home') }}"><span>خانه</span></a>
+            <li class="has-megamenu active"><a href="{{ route('users.home') }}"><span><font color="#8d168b">خانه</font></span></a>
                 <ul class="mega-menu">
                     <li><a class="d-block img-thumbnail text-center navi-link" href="index-2.html"><img
                                     alt="Featured Products Slider" src="/viseny/img/mega-menu-home/01.jpg">

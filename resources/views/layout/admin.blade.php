@@ -292,7 +292,8 @@
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span
                                     class="hide-menu">کاربران</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{ route('admin.users') }}">لیست کاربران</a></li>
+                            <li><a href="{{ route('admin.admins') }}">لیست مدیران</a></li>
+                            <li><a href="{{ route('admin.users') }}"> لیست کاربران</a></li>
                             <li><a href="{{ route('admin.users.create') }}">کاربر جدید</a></li>
                         </ul>
                     </li>

@@ -1,4 +1,4 @@
-<div class="col-lg-8">
+<div class="col-lg-12">
     <div class="padding-top-2x mt-2 hidden-lg-up"></div>
     <div class="table-responsive">
         <table class="table table-hover margin-bottom-none text-right">
@@ -6,45 +6,43 @@
             <tr>
                 <th>عنوان تیکت</th>
                 <th>زمان ارسال | بروزرسانی</th>
-                <th>نوع</th>
+                <th>متن تیکت</th>
                 <th>اولویت</th>
                 <th>وضعیت</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><a class="text-medium navi-link" href="account-single-ticket.html">تیکت جدید من !</a></td>
-                <td>08/08/2017 | 08/14/2017</td>
-                <td>مشکل در وبسایت</td>
-                <td><span class="text-warning">بالا</span></td>
-                <td><span class="text-primary">درحال پیگیری</span></td>
-            </tr>
-            <tr>
-                <td><a class="text-medium navi-link" href="account-single-ticket.html">یک تیکت دیگر</a></td>
-                <td>07/21/2017 | 07/23/2017</td>
-                <td>ارسال درخواست همکاری</td>
-                <td><span class="text-info">متوسط</span></td>
-                <td><span class="text-muted">بسته شده</span></td>
-            </tr>
-            <tr>
-                <td><a class="text-medium navi-link" href="account-single-ticket.html">تیکت دیگری هم دارم</a></td>
-                <td>05/19/2017 | 05/20/2017</td>
-                <td>ارائه یک راهکار</td>
-                <td><span class="text-danger">پایین</span></td>
-                <td><span class="text-muted">بسته شده</span></td>
-            </tr>
-            <tr>
-                <td><a class="text-medium navi-link" href="account-single-ticket.html">قدیمی تریت تیکت من</a></td>
-                <td>05/19/2017 | 05/20/2017</td>
-                <td>اطلاعات پیکربندی</td>
-                <td><span class="text-success">خیلی کم</span></td>
-                <td><span class="text-muted">بسته شده</span></td>
-            </tr>
+            @foreach($tickets as $ticket)
+                <tr>
+                    <td><a class="text-medium navi-link"
+                           href="{{ route('ticket.review',[$ticket->ticket_id]) }}">{{ $ticket->ticket_title }}</a></td>
+                    <td>{{ $ticket->updated_at->toDateString() }}
+                        <br>
+                        {{ $ticket->created_at->toDateString() }}</td>
+                    <td>{{ $ticket->ticket_content }}</td>
+                    <td><span class="text-warning">{{ $ticket->ticket_priority }}</span></td>
+                    <td>
+                        <span class="text-primary">
+                            @if($ticket->ticket_status == 0)
+                                در انتظار پاسخ
+                            @elseif($ticket->ticket_status == 1)
+                                پاسخ داده شد
+                            @elseif($ticket->ticket_status == 2)
+                                بسته شد
+                            @endif
+                        </span>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
     <hr class="mb-4">
     <div class="text-right">
-        <a href="account-single-ticket.html"><button class="btn btn-primary margin-bottom-none" data-toggle="modal" data-target="#openTicket">ثبت یک تیکت جدید</button></a>
+        <a href="{{ route('users.profile.tickets.new',[\Illuminate\Support\Facades\Auth::user()->user_id]) }}">
+            <button class="btn btn-primary margin-bottom-none" data-toggle="modal" data-target="#openTicket">ثبت یک تیکت
+                جدید
+            </button>
+        </a>
     </div>
 </div>

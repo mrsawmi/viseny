@@ -31,7 +31,7 @@
                                 <div class="comment-footer"><span
                                             class="comment-meta">{{ $comment->comment_author }}</span>
                                     | <span
-                                            class="comment-meta">{{ $comment->created_at }}</span></div>
+                                            class="comment-meta">{{ $comment->created_at->toDateString() }}</span></div>
                             </div>
                         </div>
                 @endif
@@ -40,6 +40,7 @@
                 <h5 class="mb-30 padding-top-1x text-right">افزودن دیدگاه جدید</h5>
                 <form class="row" method="post" action="{{ route('admin.comment.store') }}">
                     {{ csrf_field() }}
+                    <input type="hidden" name="productId" readonly value="{{ $product->tablo_id }}">
                     <div class="col-sm-6">
                         <div class="form-group text-right">
                             <label for="review_name">نام شما :</label>
@@ -57,7 +58,7 @@
                     <div class="col-sm-6">
                         <div class="text-right">
                             <label for="review_subject">عنوان :</label>
-                            <input class="form-control form-control-rounded" type="text" id="review_subject"
+                            <input class="form-control form-control-rounded" name="userCommentTitle" type="text" id="review_subject"
                                    required="">
                         </div>
                     </div>

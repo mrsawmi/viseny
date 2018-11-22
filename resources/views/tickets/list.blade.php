@@ -13,7 +13,6 @@
                     <th>نام و نام خانوادگی</th>
                     <th>ایمیل</th>
                     <th>موضوع</th>
-                    <th>سفارش مربوطه</th>
                     <th>اولویت</th>
                     <th>پیام</th>
                     <th>فایل ارسالی</th>
@@ -25,12 +24,24 @@
                     <tr>
                         <th scope="row">{{ $ticket->ticket_id }}</th>
                         <td>{{ $ticket->user->user_fullName }}</td>
-                        <td>{{ $ticket->user->user_email }}</td>
+                        <td>{{ $ticket->user->email }}</td>
                         <td>{{ $ticket->ticket_title}}</td>
-                        <td>    </td>
                         <td>{{ $ticket->ticket_priority }}</td>
                         <td>{{ $ticket->ticket_content }}</td>
-                        <td>{{ $ticket->ticket_attach}}</td>
+                        <td>
+                            @if(!empty($ticket->ticket_attach))
+                                {{--<img src="{{ asset('/storage/ticketAttach/'. $ticket->ticket_attach) }}" alt="Img">--}}
+                                <form method="post"
+                                      action="{{ route('file.show',[$ticket->ticket_id]) }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="{{ $ticket->ticket_id }}">
+                                    <input type="submit" name="fileId" value="نمایش فایل">
+                                    <span class="slider"></span>
+                                </form>
+                            @else
+                                فایلی ارسال نشده است
+                            @endif
+                        </td>
                         <td>
                             <a href="">
                                 پاسخ&nbsp;

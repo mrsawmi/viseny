@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 	border-top-width: 2px;
 }
 .site-menu ul > li.active > a {
-    color: #0da9ef;
+    color: #8d168b;
 }
 .site-menu ul > li > a {
     font-size: 13px;
@@ -466,7 +466,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 .widget-light-skin.widget-links ul > li > a{font-weight: 100;}
 /*----End Footer-----*/
 .tag:hover{
-	border-color:#0da9ef;
+	border-color:#8d168b;
 }
 .modal-header .close {
     padding: 15px;
@@ -617,10 +617,10 @@ select.form-control {
     left:inherit;
 }
 .checkout-steps > a.active > .angle{
-	background: #0da9ef;
+	background: #8d168b;
 }
 .checkout-steps > a.active + a > .angle::after {
-    border-right-color: #0da9ef;
+    border-right-color: #8d168b;
 }
 
 .checkout-steps > a.active + a > .angle {

@@ -9,43 +9,42 @@
                 <div class="basic-form p-10">
                     @include('partials.errors')
                     @include('partials.success')
-                    <form method="post" action="{{ route('admin.faq.sendAnswer') }}">
+                    <form method="post" action="{{ route('admin.faq.sendAnswer',[$faqs->faq_id]) }}">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="userEmail">شناسه سوال</label>
                             <input id="userEmail" name="faqId" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_id }}"
-                                   disabled>
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="userFullName">نام و نام خانوادگی</label>
                             <input id="userFullName" name="userFullName" type="text"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_fullName }}"
-                                   disabled
-                            >
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="userEmail">آدرس ایمیل</label>
-                            <input id="userEmail" name="userEmail" type="email"
+                            <input id="userEmail" name="faqEmail" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_email }}"
-                                   disabled>
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="questionTitle">عنوان سوال</label>
-                            <input id="userEmail" name="faqTitle" type="email"
+                            <input id="questionTitle" name="faqTitle" type="text"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_title }}"
-                                   disabled>
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="questionTitle">متن سوال</label>
-                            <input id="userEmail" name="faqQuestion" type="email"
+                            <input id="questionTitle" name="faqQuestion" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_caption }}"
-                                   disabled>
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="questionAnswer">متن پاسخ</label>
@@ -55,10 +54,10 @@
                         </div>
                         <div class="form-group">
                             <label for="questionCategory">دسته بندی</label>
-                            <input id="questionCategory" name="userEmail" type="email"
+                            <input id="questionCategory" name="questionCategory" type="email"
                                    class="form-control input-default hasPersianPlaceHolder"
                                    value="{{ $faqs->faq_category }}"
-                                   disabled>
+                                   readonly>
                         </div>
                         <div class="form-group">
                             <label for="questionStatus">وضعیت</label>

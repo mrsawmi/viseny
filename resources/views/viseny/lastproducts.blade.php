@@ -9,7 +9,7 @@
                 <h4 class="entry-title"><a
                             href="{{ route('products.single',[$product->tablo_id]) }}">{{ $product->tablo_title }}‌</a>
                 </h4>
-                <span class="entry-meta">{{ $product->created_at }}</span>
+                <span class="entry-meta">{{ $product->created_at->toDateString() }}</span>
             </div>
         </div>
     @endforeach

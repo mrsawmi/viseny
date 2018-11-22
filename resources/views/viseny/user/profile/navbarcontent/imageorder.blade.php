@@ -15,7 +15,7 @@
                     </div>
                     <div class="user-data">
                         <h4>{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}</h4>
-                        <span>{{ \Illuminate\Support\Facades\Auth::user()->created_at }}</span>
+                        <span>{{ \Illuminate\Support\Facades\Auth::user()->created_at->toDateString() }}</span>
                     </div>
                 </div>
             @else
@@ -26,7 +26,7 @@
                     </div>
                     <div class="user-data">
                         <h4>{{ \Illuminate\Support\Facades\Auth::user()->user_fullName }}</h4>
-                        <span>عضو شده در:{{ \Illuminate\Support\Facades\Auth::user()->created_at }}</span>
+                        <span>عضو شده در:{{ \Illuminate\Support\Facades\Auth::user()->created_at->toDateString() }}</span>
                     </div>
                 </div>
             @endif

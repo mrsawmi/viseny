@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\DemoMail;
 use App\Models\Faq;
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FaqController extends Controller
 {
@@ -42,7 +45,7 @@ class FaqController extends Controller
     public function usersQuestions()
     {
         if (Auth::check()) {
-            $usersQuestions = Faq::where('faq_status', '=', 0)->get();
+            $usersQuestions = Faq::where('faq_status', '!=', 3)->get();
             return view('faq.userslist', compact('usersQuestions'));
         } else {
             return redirect()->route('login');
@@ -86,7 +89,8 @@ class FaqController extends Controller
     {
         if (Auth::check()) {
             $faqs = Faq::find($faq_id);
-            return view('faq.answer', compact('faqs'));
+            if (!empty($faqs))
+                return view('faq.answer', compact('faqs'));
         } else {
             return redirect()->route('login');
         }
@@ -95,10 +99,32 @@ class FaqController extends Controller
     public function sendAnswer(Request $request, $faq_id)
     {
         if (Auth::check()) {
+            $faq = Faq::find($faq_id);
+            $email = $request->input('faqEmail');
             if ($request->input('questionPublish') == 'ارسال ایمیل به کاربر') {
-                //send an email
+                Mail::to($email)->send(new DemoMail());
+                if ($faq && $faq instanceof Faq) {
+                    $statusData = [
+                        'faq_status' => 2,
+                        'faq_answer' => $request->input('questionAnswer'),
+                    ];
+                }
+                $updateResult = $faq->update($statusData);
+                if ($updateResult) {
+                    return redirect()->route('admin.faq')->with('status', 'پاسخ ارسال گردید...!');
+                }
             } else {
-                //send an email then set status to 3
+                Mail::to($email)->send(new DemoMail());
+                if ($faq && $faq instanceof Faq) {
+                    $statusData = [
+                        'faq_status' => 3,
+                        'faq_answer' => $request->input('questionAnswer'),
+                    ];
+                }
+                $updateResult = $faq->update($statusData);
+                if ($updateResult) {
+                    return redirect()->route('admin.faq')->with('status', 'پاسخ ارسال گردید و در بخش سوالات منتشر شد...!');
+                }
             }
         } else {
             return redirect()->route('login');

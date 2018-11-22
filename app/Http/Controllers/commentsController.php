@@ -16,13 +16,26 @@ class commentsController extends Controller
 
     public function store(Request $request)
     {
-        if (Auth::guest()) {
+        if (Auth::check()) {
             $comment = comment::create([
+                'comment_user_id' => Auth::user()->user_id,
+                'comment_tablo_id' => $request->input('productId'),
+                'comment_title'=>$request->input('userCommentTitle'),
                 'comment_author' => $request->input('userCommentName'),
                 'comment_email' => $request->input('userCommentEmail'),
                 'comment_content' => $request->input('userCommentContent')
             ]);
             return back()->with('status', 'دیدگاه با موفقیت ثبت گردید');
+        } else {
+            $comment = comment::create([
+                'comment_tablo_id' => $request->input('productId'),
+                'comment_title'=>$request->input('userCommentTitle'),
+                'comment_author' => $request->input('userCommentName'),
+                'comment_email' => $request->input('userCommentEmail'),
+                'comment_content' => $request->input('userCommentContent')
+            ]);
+            return back()->with('status', 'دیدگاه با موفقیت ثبت گردید');
+
         }
     }
 

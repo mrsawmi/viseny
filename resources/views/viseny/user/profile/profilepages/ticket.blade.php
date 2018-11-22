@@ -11,10 +11,11 @@
         </div>
         <div class="column">
             <ul class="breadcrumbs">
-                <li><a href="index-2.html">خانه</a>
+                <li><a href="{{ route('users.home') }}">خانه</a>
                 </li>
                 <li class="separator">&nbsp;</li>
-                <li><a href="account-orders.html">حساب کاربری</a>
+                <li><a href="{{ route('users.profile.account',[\Illuminate\Support\Facades\Auth::user()->user_id]) }}">حساب
+                        کاربری</a>
                 </li>
                 <li class="separator">&nbsp;</li>
                 <li>پروفایل من</li>

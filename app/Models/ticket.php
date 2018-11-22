@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ticket extends Model
 {
     const WAITING = 0;
-    const ANSWERED = 1;
+    const ADMIN_ANSWERED = 1;
+    const CLOSED = 2;
 
     protected $primaryKey = "ticket_id";
     protected $guarded = [
@@ -19,11 +20,12 @@ class ticket extends Model
         return $this->belongsTo(User::class,'ticket_user_id');
     }
 
-    public function getTicketStatus()
+    static function getTicketStatus()
     {
         return [
-            self::ANSWERED => 'پاسخ داده شد!',
-            self::WAITING => 'در انتظار پاسخ...'
+            self::WAITING => 'در انتظار پاسخ...',
+            self::ADMIN_ANSWERED => 'پاسخ داده شد',
+            self::CLOSED => 'بسته شده',
         ];
     }
 

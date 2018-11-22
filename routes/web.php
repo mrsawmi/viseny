@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('users', 'admin\adminController@index');
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', 'admin\UsersController@index')->name('admin.users');
+        Route::get('/admins', 'admin\UsersController@listOfAdmins')->name('admin.admins');
         Route::get('/create', 'admin\UsersController@create')->name('admin.users.create');
         Route::post('store', 'admin\UsersController@store')->name('admin.users.store');
         Route::get('delete/{user_id}', 'admin\UsersController@delete')->name('admin.users.delete');
@@ -39,6 +40,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('answer/{ticket_id}', 'ticketController@answer')->name('admin.ticket.answer');
         Route::post('feedback/{ticket_id}', 'ticketController@feedback')->name('admin.ticket.sendfeedback');
         Route::get('close/{ticket_id}', 'ticketController@close')->name('admin.ticket.close');
+        Route::post('showFile/{ticket_id}', 'ticketController@showFile')->name('file.show');
+        Route::get('/review/{ticket_id}', 'ticketController@ticketReview')->name('ticket.review');
     });
     Route::group(['prefix' => 'order'], function () {
         Route::get('/', 'ordersController@index')->name('admin.order');
@@ -74,11 +77,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/delete/{faq_id}', 'admin\FaqController@delete')->name('admin.faq.delete');
         Route::get('/usersQuestions', 'admin\FaqController@usersQuestions')->name('admin.faq.users');
         Route::post('/answer/{faq_id}', 'admin\FaqController@answer')->name('admin.faq.answer');
-        Route::get('/answer/send','admin\FaqController@sendAnswer')->name('admin.faq.sendAnswer');
+        Route::post('/answer/send/{faq_id}', 'admin\FaqController@sendAnswer')->name('admin.faq.sendAnswer');
     });
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
+Route::group(['prefix' => 'profile'], function () {
     Route::get('/{user_id}', 'admin\UsersController@profile')->name('users.profile.account');
     Route::post('/{user_id}/update', 'admin\UsersController@updateProfile')->name('users.profile.account.update');
     Route::get('/{user_id}/orders', 'admin\UsersController@profileOrders')->name('users.profile.orders');
@@ -86,6 +89,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
     Route::post('/{user_id}/addresses/update', 'admin\UsersController@updateAddress')->name('users.profile.addresses.update');
     Route::get('/{user_id}/favorites', 'admin\UsersController@profileFavorites')->name('users.profile.favorites');
     Route::get('/{user_id}/tickets', 'admin\UsersController@profileTickets')->name('users.profile.tickets');
+    Route::get('/{user_id}/tickets/new', 'ticketController@usersNewTicket')->name('users.profile.tickets.new');
+    Route::post('/{user_id}/tickets/new/send', 'ticketController@usersTicketStore')->name('users.profile.tickets.send');
 });
 
 /* Ecommerce */

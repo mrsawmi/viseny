@@ -13,7 +13,7 @@
                     <p class="text-white">
                         ایمیل :
                         <a href="https://shayanmayeli@gmail.com">
-                         Shayanmayeli@gmail.com
+                            Shayanmayeli@gmail.com
                         </a>
                     </p>
                     <p class="text-white">وبسایت : <a class="navi-link-light" href="http://moderniz.ir/">http://moderniz.ir</a>
@@ -80,11 +80,15 @@
         <div class="row">
             <div class="col-md-7 padding-bottom-1x">
                 <!-- Payment Methods-->
-                <div class="margin-bottom-1x" style="max-width: 615px;"><img
-                            src="{{ asset('/storage/com.zarinpal.ewallets.png') }}"
-                            width="100"
-                            height="100"
-                            alt="Payment Methods">
+                <div class="margin-bottom-1x" style="max-width: 615px;">
+                    <a href="https://zarinpal.com"> <img src="{{ asset('/storage/com.zarinpal.ewallets.png') }}"
+                                                        width="100"
+                                                        height="100"
+                                                        alt="Payment Methods"></a>
+                    <a href="https://pay.ir"> <img src="{{ asset('/storage/pay.ir.png') }}"
+                                                   width="100"
+                                                   height="100"
+                                                   alt="Payment Methods"></a>
                 </div>
             </div>
             <div class="col-md-5 padding-bottom-1x">

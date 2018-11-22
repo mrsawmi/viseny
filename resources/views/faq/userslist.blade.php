@@ -14,6 +14,7 @@
                     <th>ایمیل</th>
                     <th>عنوان سوال</th>
                     <th>متن سوال</th>
+                    <th>پاسخ</th>
                     <th>دسته بندی</th>
                     <th>وضعیت</th>
                     <th>عملیات</th>
@@ -27,6 +28,7 @@
                         <td>{{ $question->faq_email }}</td>
                         <td>{{ $question->faq_title }}</td>
                         <td>{{ $question->faq_caption }}</td>
+                        <td>{{ $question->faq_answer }}</td>
                         <td>{{ $question->faq_category }}</td>
                         <td>
                             <label class="switch" for="switch">

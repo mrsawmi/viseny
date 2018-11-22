@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Models\Role;
+use App\Models\ticket;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,13 +24,22 @@ class UsersController extends Controller
             $checker = new User();
             $result = $checker->checkRole(Auth::user()->user_group);
             if ($result == 1) {
-                $users = User::all();
-                $userGroups = User::with('role')->get();
+                $users = User::where('user_group', '=', 1)->get();
                 return view('admin.list', compact('users', 'userGroups'));
             }
             return back()->with('status', 'اجازه دسترسی به این صفحه را ندارید...!');
         }
         return redirect()->route('login');
+    }
+
+    public function listOfAdmins()
+    {
+        if (Auth::check()) {
+            $admins = User::where('user_group', '!=', 1)->get();
+            return view('admin.listadmin', compact('admins'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function create()
@@ -163,7 +173,8 @@ class UsersController extends Controller
     public function profileTickets(Request $request, $user_id)
     {
         $user = User::find($user_id);
-        return view('viseny.user.profile.profilepages.ticket', compact('user'));
+        $tickets = ticket::where('ticket_user_id', '=', Auth::user()->user_id)->get();
+        return view('viseny.user.profile.profilepages.ticket', compact('user', 'tickets'));
     }
 
     public function updateProfile(Request $request, $user_id)

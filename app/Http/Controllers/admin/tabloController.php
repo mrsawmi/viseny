@@ -161,10 +161,10 @@ class tabloController extends Controller
                 ];
                 $product->update($tabloData);
             }
-            $comments = comment::with('users')->get();
+            $comments = comment::where('comment_tablo_id', '=', $product->tablo_id)->get();
             return view('viseny.singleproduct', compact('product', 'comments'));
         }
-        return back()->with('status','محصول مورد نظر یافت نشد...!');
+        return back()->with('status', 'محصول مورد نظر یافت نشد...!');
     }
 
     public function about()
