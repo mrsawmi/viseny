@@ -8,7 +8,6 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "npm-asset/bootstrap": "dev-master",
     "php": "^7.1.3",
     "lib-curl": "^7.56",
     "eloquent/composer-npm-bridge": "^4",
@@ -16,7 +15,9 @@
     "foxy/foxy": "^1.0",
     "laravel/framework": "5.7.*",
     "laravel/tinker": "^1.0",
-    "lenius/laravel-basket": "^2.1"
+    "lenius/laravel-basket": "^2.1",
+    "npm-asset/bootstrap": "dev-master",
+    "zarinpal/zarinpal": "^1.3"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.2",

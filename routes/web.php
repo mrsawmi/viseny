@@ -37,11 +37,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', 'ticketController@index')->name('admin.ticket');
         Route::get('/create', 'ticketController@create')->name('admin.ticket.create');
         Route::post('store', 'ticketController@store')->name('admin.ticket.store');
-        Route::get('answer/{ticket_id}', 'ticketController@answer')->name('admin.ticket.answer');
+        Route::get('answer/{ticket_id}', 'ticketController@ticketReviewAnswer')->name('admin.ticket.answer');
         Route::post('feedback/{ticket_id}', 'ticketController@feedback')->name('admin.ticket.sendfeedback');
         Route::get('close/{ticket_id}', 'ticketController@close')->name('admin.ticket.close');
         Route::post('showFile/{ticket_id}', 'ticketController@showFile')->name('file.show');
-        Route::get('/review/{ticket_id}', 'ticketController@ticketReview')->name('ticket.review');
     });
     Route::group(['prefix' => 'order'], function () {
         Route::get('/', 'ordersController@index')->name('admin.order');
@@ -91,6 +90,8 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('/{user_id}/tickets', 'admin\UsersController@profileTickets')->name('users.profile.tickets');
     Route::get('/{user_id}/tickets/new', 'ticketController@usersNewTicket')->name('users.profile.tickets.new');
     Route::post('/{user_id}/tickets/new/send', 'ticketController@usersTicketStore')->name('users.profile.tickets.send');
+    Route::get('/review/{ticket_id}', 'ticketController@ticketReview')->name('ticket.review');
+    Route::post('/review/{ticket_id}/store', 'ticketController@ticketReviewStore')->name('ticket.review.store');
 });
 
 /* Ecommerce */

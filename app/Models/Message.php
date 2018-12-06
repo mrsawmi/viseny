@@ -11,4 +11,9 @@ class Message extends Model
     protected $guarded = [
         'message_id'
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class,'user_id');
+    }
 }

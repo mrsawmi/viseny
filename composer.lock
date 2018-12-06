@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b27a51178eaa726c5a4db23bd6095b81",
+    "content-hash": "ba83b0c2127a4e3299ca93038725b4b3",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -267,6 +267,63 @@
             "time": "2018-09-25T20:47:26+00:00"
         },
         {
+            "name": "eloquent/composer-npm-bridge",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/composer-npm-bridge.git",
+                "reference": "d2837b33da4eaa79c661788c621fc2d1a71da64d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/composer-npm-bridge/zipball/d2837b33da4eaa79c661788c621fc2d1a71da64d",
+                "reference": "d2837b33da4eaa79c661788c621fc2d1a71da64d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1",
+                "php": ">=7"
+            },
+            "require-dev": {
+                "composer/composer": "dev-master",
+                "eloquent/phony-phpunit": "^3",
+                "errors/exceptions": "^0.2",
+                "phpunit/phpunit": "^6"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Eloquent\\Composer\\NpmBridge\\NpmBridgePlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Composer\\NpmBridge\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "NPM integration for Composer packages.",
+            "homepage": "https://github.com/eloquent/composer-npm-bridge",
+            "keywords": [
+                "Bridge",
+                "composer",
+                "composer-plugin",
+                "integration",
+                "npm",
+                "package",
+                "plugin"
+            ],
+            "time": "2018-12-06T01:02:45+00:00"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.7.1",
             "source": {
@@ -365,6 +422,249 @@
                 "trusted proxy"
             ],
             "time": "2018-02-07T20:20:57+00:00"
+        },
+        {
+            "name": "foxy/foxy",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fxpio/foxy.git",
+                "reference": "5b7cb97abc07fbff4eec87abd941be5c6a532c54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fxpio/foxy/zipball/5b7cb97abc07fbff4eec87abd941be5c6a532c54",
+                "reference": "5b7cb97abc07fbff4eec87abd941be5c6a532c54",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "composer/composer": "^1.5.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Foxy\\Foxy",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Foxy\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@gmail.com"
+                }
+            ],
+            "description": "Fast, reliable, and secure NPM/Yarn bridge for Composer",
+            "homepage": "https://github.com/fxpio/foxy",
+            "keywords": [
+                "Bridge",
+                "asset",
+                "composer",
+                "dependency manager",
+                "nodejs",
+                "npm",
+                "package",
+                "yarn"
+            ],
+            "time": "2018-09-07T06:51:12+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2018-04-22T15:46:56+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2018-12-04T20:46:45+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1030,6 +1330,745 @@
             "time": "2018-09-18T07:03:24+00:00"
         },
         {
+            "name": "npm-asset/ansi-styles",
+            "version": "3.2.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz",
+                "reference": null,
+                "shasum": "41fbb20243e50b12be0f04b8dedbf07520ce841d"
+            },
+            "require": {
+                "npm-asset/color-convert": ">=1.9.0,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/chalk/ansi-styles/issues"
+                },
+                "npm-asset-files": [
+                    "index.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/chalk/ansi-styles.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "xo && ava",
+                    "screenshot": "svg-term --command='node screenshot' --out=screenshot.svg --padding=3 --width=55 --height=3 --at=1000 --no-cursor"
+                },
+                "npm-asset-engines": {
+                    "node": ">=4"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sindre Sorhus",
+                    "email": "sindresorhus@gmail.com",
+                    "url": "sindresorhus.com"
+                }
+            ],
+            "description": "ANSI escape codes for styling strings in the terminal",
+            "homepage": "https://github.com/chalk/ansi-styles#readme",
+            "keywords": [
+                "256",
+                "ansi",
+                "cli",
+                "color",
+                "colors",
+                "colour",
+                "command-line",
+                "console",
+                "escape",
+                "formatting",
+                "log",
+                "logging",
+                "rgb",
+                "shell",
+                "string",
+                "styles",
+                "terminal",
+                "text",
+                "tty",
+                "xterm"
+            ],
+            "time": "2018-03-02T09:40:00+00:00"
+        },
+        {
+            "name": "npm-asset/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "92de1e831b7a8422edfb6e3a681d0dff4d8dea95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/92de1e831b7a8422edfb6e3a681d0dff4d8dea95",
+                "reference": "92de1e831b7a8422edfb6e3a681d0dff4d8dea95",
+                "shasum": ""
+            },
+            "require": {
+                "npm-asset/postcss": ">=6.0.21,<7.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/twbs/bootstrap/issues"
+                },
+                "npm-asset-files": [
+                    "dist",
+                    "fonts",
+                    "grunt",
+                    "js/*.js",
+                    "less/**/*.less",
+                    "Gruntfile.js",
+                    "LICENSE"
+                ],
+                "npm-asset-main": "./dist/js/npm",
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "https://github.com/twbs/bootstrap.git"
+                },
+                "npm-asset-scripts": {
+                    "change-version": "node grunt/change-version.js",
+                    "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
+                    "test": "grunt test"
+                },
+                "npm-asset-engines": {
+                    "node": ">=6"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                "Twitter, Inc."
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2018-11-18T08:00:03+00:00"
+        },
+        {
+            "name": "npm-asset/chalk",
+            "version": "2.4.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/chalk/-/chalk-2.4.1.tgz",
+                "reference": null,
+                "shasum": "18c49ab16a037b6eb0152cc83e3471338215b66e"
+            },
+            "require": {
+                "npm-asset/ansi-styles": ">=3.2.1,<4.0.0",
+                "npm-asset/escape-string-regexp": ">=1.0.5,<2.0.0",
+                "npm-asset/supports-color": ">=5.3.0,<6.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/chalk/chalk/issues"
+                },
+                "npm-asset-files": [
+                    "index.js",
+                    "templates.js",
+                    "types/index.d.ts",
+                    "index.js.flow"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/chalk/chalk.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "xo && tsc --project types && flow --max-warnings=0 && nyc ava",
+                    "bench": "matcha benchmark.js",
+                    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+                },
+                "npm-asset-engines": {
+                    "node": ">=4"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Terminal string styling done right",
+            "homepage": "https://github.com/chalk/chalk#readme",
+            "keywords": [
+                "256",
+                "ansi",
+                "cli",
+                "color",
+                "colors",
+                "colour",
+                "command-line",
+                "console",
+                "formatting",
+                "log",
+                "logging",
+                "rgb",
+                "shell",
+                "str",
+                "string",
+                "style",
+                "styles",
+                "terminal",
+                "text",
+                "tty",
+                "xterm"
+            ],
+            "time": "2018-04-26T05:15:51+00:00"
+        },
+        {
+            "name": "npm-asset/color-convert",
+            "version": "1.9.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz",
+                "reference": null,
+                "shasum": "bb71850690e1f136567de629d2d5471deda4c1e8"
+            },
+            "require": {
+                "npm-asset/color-name": "1.1.3"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Qix-/color-convert/issues"
+                },
+                "npm-asset-files": [
+                    "index.js",
+                    "conversions.js",
+                    "css-keywords.js",
+                    "route.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Qix-/color-convert.git"
+                },
+                "npm-asset-scripts": {
+                    "pretest": "xo",
+                    "test": "node test/basic.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Heather Arthur",
+                    "email": "fayearthur@gmail.com"
+                }
+            ],
+            "description": "Plain color conversion functions",
+            "homepage": "https://github.com/Qix-/color-convert#readme",
+            "keywords": [
+                "ansi",
+                "ansi16",
+                "cmyk",
+                "color",
+                "colour",
+                "conversion",
+                "convert",
+                "converter",
+                "hsl",
+                "hsv",
+                "hwb",
+                "rgb"
+            ],
+            "time": "2018-08-28T05:32:39+00:00"
+        },
+        {
+            "name": "npm-asset/color-name",
+            "version": "1.1.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz",
+                "reference": null,
+                "shasum": "a7d0558bd89c42f795dd42328f740831ca53bc25"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/dfcreative/color-name/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/dfcreative/color-name.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "node test.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DY",
+                    "email": "dfcreative@gmail.com"
+                }
+            ],
+            "description": "A list of color names and its values",
+            "homepage": "https://github.com/dfcreative/color-name",
+            "keywords": [
+                "color",
+                "color-keyword",
+                "color-name",
+                "keyword"
+            ],
+            "time": "2017-07-15T22:17:08+00:00"
+        },
+        {
+            "name": "npm-asset/escape-string-regexp",
+            "version": "1.0.5",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz",
+                "reference": null,
+                "shasum": "1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/sindresorhus/escape-string-regexp/issues"
+                },
+                "npm-asset-files": [
+                    "index.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "https://github.com/sindresorhus/escape-string-regexp"
+                },
+                "npm-asset-scripts": {
+                    "test": "xo && ava"
+                },
+                "npm-asset-engines": {
+                    "node": ">=0.8.0"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sindre Sorhus",
+                    "email": "sindresorhus@gmail.com",
+                    "url": "sindresorhus.com"
+                }
+            ],
+            "description": "Escape RegExp special characters",
+            "homepage": "https://github.com/sindresorhus/escape-string-regexp",
+            "keywords": [
+                "characters",
+                "escape",
+                "expression",
+                "re",
+                "regex",
+                "regexp",
+                "regular",
+                "special",
+                "str",
+                "string"
+            ],
+            "time": "2016-02-21T12:55:17+00:00"
+        },
+        {
+            "name": "npm-asset/has-flag",
+            "version": "3.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz",
+                "reference": null,
+                "shasum": "b5d454dc2199ae225699f3467e5a07f3b955bafd"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/sindresorhus/has-flag/issues"
+                },
+                "npm-asset-files": [
+                    "index.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/sindresorhus/has-flag.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "xo && ava"
+                },
+                "npm-asset-engines": {
+                    "node": ">=4"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sindre Sorhus",
+                    "email": "sindresorhus@gmail.com",
+                    "url": "sindresorhus.com"
+                }
+            ],
+            "description": "Check if argv has a specific flag",
+            "homepage": "https://github.com/sindresorhus/has-flag#readme",
+            "keywords": [
+                "arg",
+                "args",
+                "argument",
+                "arguments",
+                "argv",
+                "check",
+                "cli",
+                "command-line",
+                "contains",
+                "detect",
+                "find",
+                "flag",
+                "getopt",
+                "has",
+                "minimist",
+                "optimist",
+                "process"
+            ],
+            "time": "2018-01-02T19:21:56+00:00"
+        },
+        {
+            "name": "npm-asset/postcss",
+            "version": "6.0.23",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/postcss/-/postcss-6.0.23.tgz",
+                "reference": null,
+                "shasum": "61c82cc328ac60e677645f979054eb98bc0e3324"
+            },
+            "require": {
+                "npm-asset/chalk": ">=2.4.1,<3.0.0",
+                "npm-asset/source-map": ">=0.6.1,<0.7.0",
+                "npm-asset/supports-color": ">=5.4.0,<6.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/postcss/postcss/issues"
+                },
+                "npm-asset-main": "lib/postcss",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/postcss/postcss.git"
+                },
+                "npm-asset-engines": {
+                    "node": ">=4.0.0"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Sitnik",
+                    "email": "andrey@sitnik.ru"
+                }
+            ],
+            "description": "Tool for transforming styles with JS plugins",
+            "homepage": "https://postcss.org/",
+            "keywords": [
+                "css",
+                "manipulation",
+                "parser",
+                "postcss",
+                "preprocessor",
+                "rework",
+                "source map",
+                "transform",
+                "transpiler"
+            ],
+            "time": "2018-06-21T18:43:26+00:00"
+        },
+        {
+            "name": "npm-asset/source-map",
+            "version": "0.6.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+                "reference": null,
+                "shasum": "74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/mozilla/source-map/issues"
+                },
+                "npm-asset-files": [
+                    "source-map.js",
+                    "source-map.d.ts",
+                    "lib/",
+                    "dist/source-map.debug.js",
+                    "dist/source-map.js",
+                    "dist/source-map.min.js",
+                    "dist/source-map.min.js.map"
+                ],
+                "npm-asset-main": "./source-map.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/mozilla/source-map.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "npm run build && node test/run-tests.js",
+                    "build": "webpack --color",
+                    "toc": "doctoc --title '## Table of Contents' README.md && doctoc --title '## Table of Contents' CONTRIBUTING.md"
+                },
+                "npm-asset-engines": {
+                    "node": ">=0.10.0"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nick Fitzgerald",
+                    "email": "nfitzgerald@mozilla.com"
+                },
+                {
+                    "name": "Tobias Koppers",
+                    "email": "tobias.koppers@googlemail.com"
+                },
+                {
+                    "name": "Duncan Beevers",
+                    "email": "duncan@dweebd.com"
+                },
+                {
+                    "name": "Stephen Crane",
+                    "email": "scrane@mozilla.com"
+                },
+                {
+                    "name": "Ryan Seddon",
+                    "email": "seddon.ryan@gmail.com"
+                },
+                {
+                    "name": "Miles Elam",
+                    "email": "miles.elam@deem.com"
+                },
+                {
+                    "name": "Mihai Bazon",
+                    "email": "mihai.bazon@gmail.com"
+                },
+                {
+                    "name": "Michael Ficarra",
+                    "email": "github.public.email@michael.ficarra.me"
+                },
+                {
+                    "name": "Todd Wolfson",
+                    "email": "todd@twolfson.com"
+                },
+                {
+                    "name": "Alexander Solovyov",
+                    "email": "alexander@solovyov.net"
+                },
+                {
+                    "name": "Felix Gnass",
+                    "email": "fgnass@gmail.com"
+                },
+                {
+                    "name": "Conrad Irwin",
+                    "email": "conrad.irwin@gmail.com"
+                },
+                {
+                    "name": "usrbincc",
+                    "email": "usrbincc@yahoo.com"
+                },
+                {
+                    "name": "David Glasser",
+                    "email": "glasser@davidglasser.net"
+                },
+                {
+                    "name": "Chase Douglas",
+                    "email": "chase@newrelic.com"
+                },
+                {
+                    "name": "Evan Wallace",
+                    "email": "evan.exe@gmail.com"
+                },
+                {
+                    "name": "Heather Arthur",
+                    "email": "fayearthur@gmail.com"
+                },
+                {
+                    "name": "Hugh Kennedy",
+                    "email": "hughskennedy@gmail.com"
+                },
+                {
+                    "name": "David Glasser",
+                    "email": "glasser@davidglasser.net"
+                },
+                {
+                    "name": "Simon Lydell",
+                    "email": "simon.lydell@gmail.com"
+                },
+                {
+                    "name": "Jmeas Smith",
+                    "email": "jellyes2@gmail.com"
+                },
+                {
+                    "name": "Michael Z Goddard",
+                    "email": "mzgoddard@gmail.com"
+                },
+                {
+                    "name": "azu",
+                    "email": "azu@users.noreply.github.com"
+                },
+                {
+                    "name": "John Gozde",
+                    "email": "john@gozde.ca"
+                },
+                {
+                    "name": "Adam Kirkton",
+                    "email": "akirkton@truefitinnovation.com"
+                },
+                {
+                    "name": "Chris Montgomery",
+                    "email": "christopher.montgomery@dowjones.com"
+                },
+                {
+                    "name": "J. Ryan Stinnett",
+                    "email": "jryans@gmail.com"
+                },
+                {
+                    "name": "Jack Herrington",
+                    "email": "jherrington@walmartlabs.com"
+                },
+                {
+                    "name": "Chris Truter",
+                    "email": "jeffpalentine@gmail.com"
+                },
+                {
+                    "name": "Daniel Espeset",
+                    "email": "daniel@danielespeset.com"
+                },
+                {
+                    "name": "Jamie Wong",
+                    "email": "jamie.lf.wong@gmail.com"
+                },
+                {
+                    "name": "Eddy Bruël",
+                    "email": "ejpbruel@mozilla.com"
+                },
+                {
+                    "name": "Hawken Rives",
+                    "email": "hawkrives@gmail.com"
+                },
+                {
+                    "name": "Gilad Peleg",
+                    "email": "giladp007@gmail.com"
+                },
+                {
+                    "name": "djchie",
+                    "email": "djchie.dev@gmail.com"
+                },
+                {
+                    "name": "Gary Ye",
+                    "email": "garysye@gmail.com"
+                },
+                {
+                    "name": "Nicolas Lalevée",
+                    "email": "nicolas.lalevee@hibnet.org"
+                }
+            ],
+            "description": "Generates and consumes source maps",
+            "homepage": "https://github.com/mozilla/source-map",
+            "time": "2017-09-29T14:42:30+00:00"
+        },
+        {
+            "name": "npm-asset/supports-color",
+            "version": "5.5.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz",
+                "reference": null,
+                "shasum": "e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
+            },
+            "require": {
+                "npm-asset/has-flag": ">=3.0.0,<4.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/chalk/supports-color/issues"
+                },
+                "npm-asset-files": [
+                    "index.js",
+                    "browser.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/chalk/supports-color.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "xo && ava"
+                },
+                "npm-asset-engines": {
+                    "node": ">=4"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sindre Sorhus",
+                    "email": "sindresorhus@gmail.com",
+                    "url": "sindresorhus.com"
+                }
+            ],
+            "description": "Detect whether a terminal supports color",
+            "homepage": "https://github.com/chalk/supports-color#readme",
+            "keywords": [
+                "16m",
+                "256",
+                "ansi",
+                "capability",
+                "cli",
+                "color",
+                "colors",
+                "colour",
+                "command-line",
+                "console",
+                "detect",
+                "rgb",
+                "shell",
+                "styles",
+                "support",
+                "supports",
+                "terminal",
+                "truecolor",
+                "tty",
+                "xterm"
+            ],
+            "time": "2018-08-20T04:37:37+00:00"
+        },
+        {
             "name": "opis/closure",
             "version": "3.1.1",
             "source": {
@@ -1183,6 +2222,56 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -1352,6 +2441,46 @@
                 "shell"
             ],
             "time": "2018-09-05T11:40:09+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2462,6 +3591,56 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "zarinpal/zarinpal",
+            "version": "v1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RTLer/zarinpal-composer-library.git",
+                "reference": "16c349c74941d6f49dcb066943ead5432fd62998"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RTLer/zarinpal-composer-library/zipball/16c349c74941d6f49dcb066943ead5432fd62998",
+                "reference": "16c349c74941d6f49dcb066943ead5432fd62998",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.3.*",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Zarinpal\\Laravel\\ZarinpalServiceProvider"
+                    ],
+                    "aliases": {
+                        "Zarinpal": "Zarinpal\\Laravel\\Facade\\Zarinpal"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zarinpal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "hooman naghiee",
+                    "email": "hooman@zarinpal.com"
+                }
+            ],
+            "description": "transaction request system for zarinpal",
+            "time": "2018-01-31T12:55:03+00:00"
         }
     ],
     "packages-dev": [
@@ -4353,11 +5532,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "npm-asset/bootstrap": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "lib-curl": "^7.56"
     },
     "platform-dev": []
 }

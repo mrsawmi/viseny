@@ -23,6 +23,7 @@
         </div>
     </div>
 </div>
+@include('partials.success')
 <div class="container padding-bottom-3x mb-2">
     <div class="row">
 
@@ -64,41 +65,43 @@
             </div>
             <!-- Messages-->
             @foreach($messages as $message)
-                @if(\Illuminate\Support\Facades\Auth::user()->user_id == $message->message_user_id)
                 <div class="comment">
-                    <div class="comment-author-ava"><img src="i{{ asset() }}" alt="Avatar"></div>
+                    @if(\Illuminate\Support\Facades\Auth::user()->user_id == $message->message_user_id)
+                        @if(!empty(\Illuminate\Support\Facades\Auth::user()->user_img))
+                            <div class="comment-author-ava"><img
+                                        src="{{ asset('/storage/profile/'.\Illuminate\Support\Facades\Auth::user()->user_img) }}"
+                                        alt="Avatar"></div>
+                        @else
+                            <div class="comment-author-ava"><img
+                                        src="{{ asset('/storage/profile/default.png') }}"
+                                        alt="Avatar"></div>
+
+                        @endif
+                    @else
+                        <div class="comment-author-ava"><img src="{{ asset('/storage/profile/support.png') }}"
+                                                             alt="Avatar"></div>
+                    @endif
                     <div class="comment-body">
-                        <p class="comment-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو بای متنوع با هدف
-                            بهبود
-                            ابزارهای کاربردی می باشد، کتابهارهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                            داشت که تممان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
-                            موجود
-                            طراحی اساسا مورد استفاده قرار گیرد.</p>
-                        <div class="comment-footer"><span class="comment-meta">محمد شجاع</span></div>
+                        <p class="comment-text">{{ $message->message }}</p>
+                        <div class="comment-footer"><span
+                                    class="comment-meta">{{ $message->message_sender }}
+                                | {{ $message->created_at }}</span></div>
                     </div>
                 </div>
-                @else
-                    <div class="comment">
-                        <div class="comment-author-ava"><img src="i{{ asset() }}" alt="Avatar"></div>
-                        <div class="comment-body">
-                            <p class="comment-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو بای متنوع با هدف
-                                بهبود
-                                ابزارهای کاربردی می باشد، کتابهارهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                                داشت که تممان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
-                                موجود
-                                طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            <div class="comment-footer"><span class="comment-meta">محمد شجاع</span></div>
-                        </div>
-                    </div>
         @endforeach
         <!-- Reply Form-->
             <h5 class="mb-30 padding-top-1x">افزودن ی پیام تازه</h5>
-            <form method="post">
+            <form method="post" action="{{ route('ticket.review.store',[$ticket->ticket_id]) }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="ticketId" value="{{ $ticket->ticket_id }}">
                 <div class="form-group">
-                    <textarea class="form-control form-control-rounded" id="review_text" rows="8"
+                    <textarea class="form-control form-control-rounded" name="ticketReview" id="review_text" rows="8"
                               placeholder="پیام خود را اینجا بنویسید ..." required=""></textarea>
                 </div>
                 <div class="text-right">
+                    <a href="{{ route('users.profile.tickets',[\Illuminate\Support\Facades\Auth::user()->user_id]) }}">
+                        <button class="btn btn-outline-primary" type="button">بازگشت</button>
+                    </a>
                     <button class="btn btn-outline-primary" type="submit">ارسال پیام جدید</button>
                 </div>
             </form>

@@ -16,6 +16,7 @@
                     <th>اولویت</th>
                     <th>پیام</th>
                     <th>فایل ارسالی</th>
+                    <th>وضعیت</th>
                     <th> عملیات</th>
                 </tr>
                 </thead>
@@ -43,7 +44,18 @@
                             @endif
                         </td>
                         <td>
-                            <a href="">
+                            <span class="text-primary">
+                            @if($ticket->ticket_status == 0)
+                                    در انتظار پاسخ
+                                @elseif($ticket->ticket_status == 1)
+                                    پاسخ داده شد
+                                @elseif($ticket->ticket_status == 2)
+                                    بسته شد
+                                @endif
+                        </span>
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.ticket.answer',[$ticket->ticket_id]) }}">
                                 پاسخ&nbsp;
                             </a>
                             <a href="">

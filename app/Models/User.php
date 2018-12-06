@@ -35,11 +35,16 @@ class User extends Authenticatable
         'password', 'remember_token'
     ];
 
+    public function messages()
+    {
+        return $this->belongsTo(Message::class, 'message_user_id');
+    }
 
     public function factors()
     {
-        return $this->belongsTo(Factor::class,'user_fullName');
+        return $this->belongsTo(Factor::class, 'user_fullName');
     }
+
     public function orders()
     {
         return $this->hasMany(order::class, 'user_id');

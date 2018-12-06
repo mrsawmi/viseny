@@ -74,10 +74,56 @@ class ticketController extends Controller
     public function ticketReview(Request $request, $ticket_id)
     {
         $ticket = ticket::find($ticket_id);
-        $messages = Message::where('message_ticket_id', '=', $ticket_id)
-            ->orderBy('created_at', 'DESC')
+        $messages = Message::with('user')->where('message_ticket_id', '=', $ticket_id)
+            ->orderBy('created_at', 'ASC')
             ->get();
-        return view('viseny.user.tickets.review', compact('ticket','messages'));
+        return view('viseny.user.tickets.review', compact('ticket', 'messages'));
     }
 
+    public function ticketReviewStore(Request $request)
+    {
+        $message = Message::create([
+            'message_ticket_id' => $request->input('ticketId'),
+            'message_user_id' => Auth::user()->user_id,
+            'message_sender' => Auth::user()->user_fullName,
+            'message' => $request->input('ticketReview'),
+        ]);
+        $ticketStatus = ticket::find($request->input('ticketId'));
+        if ($ticketStatus && $ticketStatus instanceof ticket) {
+            $ticketData = [
+                'ticket_status' => 0
+            ];
+            $message->save();
+            $ticketStatus->update($ticketData);
+            return back()->with('status', 'پیغام شما ارسال شد...!');
+        }
+    }
+
+    public function ticketReviewAnswer(Request $request, $ticket_id)
+    {
+        $ticket = ticket::find($ticket_id);
+        $messages = Message::with('user')->where('message_ticket_id', '=', $ticket_id)
+            ->orderBy('created_at', 'ASC')
+            ->get();
+        return view('tickets.review', compact('ticket', 'messages'));
+    }
+
+    public function ticketReviewAnswerStore(Request $request)
+    {
+        $message = Message::create([
+            'message_ticket_id' => $request->input('ticketId'),
+            'message_user_id' => Auth::user()->user_id,
+            'message_sender' => Auth::user()->user_fullName,
+            'message' => $request->input('ticketReview'),
+        ]);
+        $ticketStatus = ticket::find($request->input('ticketId'));
+        if ($ticketStatus && $ticketStatus instanceof ticket) {
+            $ticketData = [
+                'ticket_status' => 1
+            ];
+            $message->save();
+            $ticketStatus->update($ticketData);
+            return back()->with('status', 'پیغام شما ارسال شد...!');
+        }
+    }
 }
